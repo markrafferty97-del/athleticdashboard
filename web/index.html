@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Engine &mdash; Athlete Dashboard</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void: #08090d;
+    --panel: #121319;
+    --panel2: #181a22;
+    --hair: #23242e;
+    --ink: #e9eaef;
+    --mute: #82838f;
+    --teal: #2dd4bf;
+    --green: #3fce8c;
+    --purple: #a78bfa;
+    --amber: #e8b93f;
+    --pink: #fb7c8c;
+    --blue: #5b9dff;
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #050507;
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: var(--hair); border-radius: 8px; }
+
+  /* ---------- layout shell ---------- */
+  .shell { max-width: 1400px; margin: 0 auto; padding: 0.75rem; }
+  @media (min-width: 640px) { .shell { padding: 1.5rem; } }
+
+  .window {
+    border-radius: 0.875rem;
+    border: 1px solid var(--hair);
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(45,212,191,0.15), 0 0 28px -10px rgba(45,212,191,0.35);
+  }
+
+  .titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    background: var(--panel2);
+    border-bottom: 1px solid var(--hair);
+  }
+  .dots { display: flex; gap: 0.4rem; flex-shrink: 0; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+  .crumb {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--mute);
+    background: rgba(8,9,13,0.6);
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--hair);
+  }
+  .sync {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--mute);
+  }
+  .refresh-btn {
+    background: none; border: none; color: var(--mute); font-family: var(--font-mono);
+    font-size: 0.75rem; cursor: pointer; padding: 0;
+  }
+  .refresh-btn:hover { color: var(--teal); }
+
+  .layout { display: flex; min-height: calc(100vh - 8rem); background: var(--void); position: relative; }
+
+  /* ---------- sidebar: slide-out drawer on mobile, permanent rail on desktop ---------- */
+  .sidebar {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 240px;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    border-right: 1px solid var(--hair);
+    background: var(--panel2);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .sidebar-backdrop {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 40;
+  }
+  .sidebar-backdrop.open { display: block; }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 26px; height: 26px;
+    background: none; border: none; cursor: pointer; padding: 0;
+    flex-shrink: 0;
+  }
+  .menu-toggle-bar {
+    display: block; width: 100%; height: 2px; background: var(--ink); border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .menu-toggle.open .menu-toggle-bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .menu-toggle.open .menu-toggle-bar:nth-child(2) { opacity: 0; }
+  .menu-toggle.open .menu-toggle-bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  @media (min-width: 560px) {
+    .sidebar { position: static; transform: none; width: 208px; background: rgba(18,19,25,0.6); }
+    .sidebar-backdrop { display: none !important; }
+    .menu-toggle { display: none; }
+  }
+
+  .brand { padding: 1rem; }
+  .brand-title { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; }
+  .brand-phase { font-size: 0.68rem; color: var(--mute); font-family: var(--font-mono); margin-top: 0.15rem; }
+
+  .nav { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.5rem; }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    border: none;
+    border-left: 2px solid transparent;
+    background: transparent;
+    color: var(--mute);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-align: left;
+    padding: 0.55rem 0.6rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+  }
+  .nav-item:hover:not(.active) { background: #14151b; }
+  .nav-item.active { border-left-color: var(--teal); background: var(--panel2); color: var(--ink); }
+  .nav-mono {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 7px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600;
+    color: #08090d;
+  }
+  .mono-teal { background: var(--teal); }
+  .mono-amber { background: var(--amber); }
+  .mono-green { background: var(--green); }
+  .mono-purple { background: var(--purple); }
+  .mono-blue { background: var(--blue); }
+  .mono-pink { background: var(--pink); }
+  .nav-label { line-height: 1.2; }
+
+  .sidebar-coach {
+    margin: 1rem 0.75rem;
+    padding: 0.9rem;
+    font-size: 0.75rem;
+  }
+  .sidebar-coach .coach-label { color: var(--mute); margin-bottom: 0.3rem; }
+
+  /* ---------- main content ---------- */
+  .main { flex: 1; min-width: 0; padding: 1rem; overflow-x: hidden; }
+  @media (min-width: 640px) { .main { padding: 1.5rem; } }
+
+  .view { display: block; }
+  .view.hidden { display: none; }
+  .view-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; margin: 0 0 0.2rem; }
+  @media (min-width: 640px) { .view-title { font-size: 1.6rem; } }
+  .view-sub { color: var(--mute); font-size: 0.875rem; margin: 0 0 1.5rem; }
+
+  /* ---------- cards & grids ---------- */
+  .card {
+    background: linear-gradient(180deg, #14151d 0%, #101117 100%);
+    border: 1px solid var(--hair);
+    border-radius: 0.875rem;
+    padding: 1rem;
+  }
+  .grid-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 480px) { .grid-stats { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); } }
+  .stat-card { padding: 0.85rem; }
+  .stat-label { font-size: 0.68rem; color: var(--mute); margin-bottom: 0.3rem; }
+  .stat-value { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; }
+  .stat-unit { font-size: 0.7rem; color: var(--mute); margin-left: 0.25rem; font-weight: 400; }
+
+  .grid-2col { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem; }
+  @media (min-width: 900px) { .grid-2col { grid-template-columns: 1fr 1fr; } }
+
+  .card-label { font-size: 0.75rem; color: var(--mute); margin-bottom: 0.5rem; }
+  .card-label-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.5rem; }
+
+  .milestone-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+  @media (min-width: 560px) { .milestone-grid { grid-template-columns: repeat(3, 1fr); } }
+  .milestone-eyebrow { font-size: 0.75rem; color: var(--mute); margin-bottom: 0.2rem; }
+  .milestone-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; }
+  .milestone-note { font-size: 0.72rem; color: var(--mute); margin-top: 0.3rem; }
+
+  .gym-top { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem; }
+  @media (min-width: 900px) { .gym-top { grid-template-columns: 2fr 1fr; } }
+
+  .routine-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 720px) { .routine-grid { grid-template-columns: repeat(3, 1fr); } }
+  .routine-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .routine-letter {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(167,139,250,0.2); color: var(--purple);
+    font-size: 0.72rem; font-family: var(--font-mono);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .routine-title { font-family: var(--font-display); font-weight: 600; }
+
+  .row { display: flex; justify-content: space-between; gap: 0.5rem; }
+  .row-line { display: flex; justify-content: space-between; gap: 0.5rem; padding-bottom: 0.4rem; margin-bottom: 0.4rem; border-bottom: 1px solid rgba(35,36,46,0.6); font-size: 0.8rem; }
+  .row-line:last-child { border-bottom: none; margin-bottom: 0; }
+  .muted { color: var(--mute); }
+  .mono { font-family: var(--font-mono); }
+  .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .session-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; text-align: center; margin-bottom: 1rem; }
+  .session-stats .stat-label { margin-bottom: 0.15rem; }
+  .session-stats .stat-value { font-size: 1.05rem; }
+
+  .streak-wrap { display: flex; flex-wrap: wrap; gap: 4px; }
+  .streak-cell { width: 12px; height: 12px; border-radius: 3px; }
+
+  .progress-row { margin-bottom: 0.95rem; }
+  .progress-row:last-child { margin-bottom: 0; }
+  .progress-row-head { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.8rem; margin-bottom: 0.35rem; gap: 0.5rem; }
+  .progress-row-head .label { color: var(--ink); font-weight: 500; }
+  .progress-track { height: 8px; border-radius: 5px; background: var(--hair); overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 5px; transition: width 0.4s ease; }
+
+  .accent-teal { color: var(--teal); }
+  .accent-green { color: var(--green); }
+  .accent-purple { color: var(--purple); }
+  .accent-amber { color: var(--amber); }
+  .accent-pink { color: var(--pink); }
+  .accent-blue { color: var(--blue); }
+
+  /* ---------- form ---------- */
+  .form-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 560px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+  .field label { display: block; font-size: 0.75rem; color: var(--mute); margin-bottom: 0.3rem; }
+  .field input {
+    width: 100%; background: var(--void); border: 1px solid var(--hair); border-radius: 0.5rem;
+    padding: 0.55rem 0.75rem; font-size: 0.875rem; color: var(--ink); font-family: var(--font-body);
+  }
+  .field input:focus { outline: none; border-color: var(--teal); }
+  .btn-primary {
+    grid-column: 1 / -1;
+    background: var(--teal); color: var(--void); font-weight: 600; font-size: 0.875rem;
+    border: none; border-radius: 0.5rem; padding: 0.7rem; cursor: pointer;
+  }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .status-note { grid-column: 1 / -1; font-size: 0.75rem; color: var(--mute); }
+  .status-note.hidden { display: none; }
+  .form-eyebrow { font-size: 0.72rem; color: var(--mute); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 1rem; }
+
+  .footnote { text-align: center; font-size: 0.68rem; color: var(--mute); margin-top: 1rem; font-family: var(--font-mono); }
+
+  .sample-banner {
+    text-align: center; font-size: 0.72rem; font-family: var(--font-mono); color: var(--void);
+    background: var(--amber); padding: 0.4rem;
+  }
+
+  .insight-card { border-left: 3px solid var(--teal); margin-bottom: 1.25rem; }
+  .insight-eyebrow {
+    display: flex; align-items: center; gap: 0.45rem;
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--mute); margin-bottom: 0.6rem; font-weight: 600;
+  }
+  .insight-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .insight-summary { font-size: 0.92rem; line-height: 1.5; margin-bottom: 0.65rem; }
+  .insight-suggestion {
+    font-size: 0.85rem; line-height: 1.5; background: rgba(255,255,255,0.03);
+    border-radius: 0.5rem; padding: 0.6rem 0.75rem;
+  }
+  .insight-suggestion-tag {
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em;
+    font-weight: 700; margin-right: 0.45rem;
+  }
+
+  .gauge {
+    --pct: 0%;
+    --color: var(--teal);
+    width: 88px; height: 88px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--color) var(--pct), var(--hair) 0);
+    display: flex; align-items: center; justify-content: center; position: relative;
+  }
+  .gauge::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: #14151d; }
+  .gauge-inner { position: relative; z-index: 1; text-align: center; }
+  .gauge-value { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; line-height: 1; }
+  .gauge-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mute); margin-top: 0.2rem; }
+
+  .load-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; margin-top: 0.6rem; }
+  .load-pill {
+    display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.03em; padding: 0.25rem 0.6rem; border-radius: 999px; background: rgba(255,255,255,0.06);
+    margin-top: 0.6rem;
+  }
+
+  .loading-bar {
+    height: 2px; border-radius: 2px; margin-bottom: 1.25rem;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    background-size: 200% 100%;
+    animation: loadbar 1.2s linear infinite;
+  }
+  .loading-bar.done { display: none; }
+  @keyframes loadbar { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  .form-error { grid-column: 1 / -1; font-size: 0.78rem; color: var(--pink); display: none; }
+  .form-error.show { display: block; }
+</style>
+</head>
+
+<body>
+
+<div class="shell">
+  <!-- Mac-style window chrome -->
+  <div class="window">
+    <div class="titlebar">
+      <div class="dots">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+      </button>
+      <div class="crumb" id="route-breadcrumb">/overview</div>
+      <div class="sync">
+        <span id="last-sync">syncing&hellip;</span>
+        <button onclick="location.reload()" class="refresh-btn">&#8635; refresh</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+      <!-- Sidebar: permanent rail on desktop, slide-out drawer on mobile -->
+      <nav class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-title">ENGINE</div>
+          <div class="brand-phase" id="phase-tag">Phase 3 &middot; Lean Output</div>
+        </div>
+        <div class="nav">
+          <button class="nav-item active" data-view="overview"><span class="nav-mono mono-teal">OV</span><span class="nav-label">Overview</span></button>
+          <button class="nav-item" data-view="plan"><span class="nav-mono mono-amber">PL</span><span class="nav-label">The Plan</span></button>
+          <button class="nav-item" data-view="training"><span class="nav-mono mono-green">TR</span><span class="nav-label">Training &amp; Running</span></button>
+          <button class="nav-item" data-view="gym"><span class="nav-mono mono-purple">GY</span><span class="nav-label">Gym &amp; Lifts</span></button>
+          <button class="nav-item" data-view="sleep"><span class="nav-mono mono-blue">SL</span><span class="nav-label">Sleep &amp; Recovery</span></button>
+          <button class="nav-item" data-view="nutrition"><span class="nav-mono mono-pink">NU</span><span class="nav-label">Nutrition &amp; Log</span></button>
+        </div>
+        <div class="sidebar-coach card">
+          <div class="coach-label">AI Coach</div>
+          <div id="sidebar-headline">Waiting for this run&rsquo;s blueprint&hellip;</div>
+        </div>
+      </nav>
+
+      <!-- Main content -->
+      <main class="main">
+        <div class="loading-bar" id="loading-bar"></div>
+
+
+        <!-- OVERVIEW -->
+        <section data-view="overview" class="view">
+          <h1 class="view-title">Overview</h1>
+          <p class="view-sub">Every synced signal, one screen.</p>
+          <div class="card insight-card" id="insight-overview"></div>
+          <div class="grid-stats" id="ov-stat-cards"></div>
+          <div class="grid-2col">
+            <div class="card">
+              <div class="card-label">Body Weight &middot; kg</div>
+              <canvas id="chart-ov-weight" height="140"></canvas>
+            </div>
+            <div class="card">
+              <div class="card-label">Recovery &middot; RHR &amp; HRV</div>
+              <canvas id="chart-ov-recovery" height="140"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- PLAN -->
+        <section data-view="plan" class="view hidden">
+          <h1 class="view-title">The Plan</h1>
+          <p class="view-sub">24 weeks, one mission &mdash; body-recomp arc at a glance.</p>
+          <div class="card insight-card" id="insight-plan"></div>
+          <div class="grid-stats" id="plan-stat-cards"></div>
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-label-row">
+              <span class="card-label" style="margin-bottom:0;">Weight vs Target &middot; Glide Path</span>
+              <span class="mono" style="font-size:0.85rem;" id="plan-weight-label">&mdash;</span>
+            </div>
+            <canvas id="chart-plan-glide" height="120"></canvas>
+          </div>
+          <div class="milestone-grid" id="plan-milestones"></div>
+        </section>
+
+        <!-- TRAINING & RUNNING -->
+        <section data-view="training" class="view hidden">
+          <h1 class="view-title">Training &amp; Running</h1>
+          <p class="view-sub">Load, readiness, aerobic engine and time-in-zone.</p>
+          <div class="card insight-card" id="insight-training"></div>
+
+          <div class="gym-top">
+            <div class="card" style="display:flex; align-items:center; gap:1.25rem;">
+              <div class="gauge" id="readiness-gauge"></div>
+              <div>
+                <div class="card-label" style="margin-bottom:0.3rem;">Training Readiness</div>
+                <div id="readiness-detail" class="muted" style="font-size:0.8rem; line-height:1.4;">&mdash;</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-label">Training Load &middot; Acute:Chronic</div>
+              <div id="load-detail"></div>
+            </div>
+          </div>
+
+          <div class="grid-stats" id="training-stat-cards"></div>
+          <div class="grid-2col">
+            <div class="card">
+              <div class="card-label">Daily Steps &middot; 90 days</div>
+              <canvas id="chart-training-steps" height="140"></canvas>
+            </div>
+            <div class="card">
+              <div class="card-label">VO2max Trend</div>
+              <canvas id="chart-training-vo2" height="140"></canvas>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-label">Time in HR Zone</div>
+            <div id="zone-distribution"></div>
+          </div>
+          <div class="card">
+            <div class="card-label" style="margin-bottom:0.75rem;">Recent Runs</div>
+            <div id="runs-list"></div>
+          </div>
+        </section>
+
+        <!-- GYM & LIFTS -->
+        <section data-view="gym" class="view hidden">
+          <h1 class="view-title">Gym &amp; Lifts</h1>
+          <p class="view-sub">Auto-imported from Hevy &mdash; no hardcoded exercises.</p>
+          <div class="card insight-card" id="insight-gym"></div>
+          <div class="gym-top">
+            <div class="card">
+              <div class="card-label" style="margin-bottom:0.75rem;">Most Recent Session</div>
+              <div id="gym-recent-session" class="muted">Loading&hellip;</div>
+            </div>
+            <div class="card">
+              <div class="card-label" style="margin-bottom:0.75rem;">Personal Records (est. 1RM)</div>
+              <div id="gym-prs"></div>
+            </div>
+          </div>
+          <div class="form-eyebrow">A / B / C Split &mdash; live from routines</div>
+          <div class="routine-grid" id="gym-routines"></div>
+        </section>
+
+        <!-- SLEEP & RECOVERY -->
+        <section data-view="sleep" class="view hidden">
+          <h1 class="view-title">Sleep &amp; Recovery</h1>
+          <p class="view-sub">How well you&rsquo;re charging.</p>
+          <div class="card insight-card" id="insight-sleep"></div>
+          <div class="grid-stats" id="sleep-stat-cards"></div>
+          <div class="grid-2col">
+            <div class="card">
+              <div class="card-label">Sleep Duration Trend</div>
+              <canvas id="chart-sleep-duration" height="140"></canvas>
+            </div>
+            <div class="card">
+              <div class="card-label">Body Battery vs Stress (dual-axis)</div>
+              <canvas id="chart-sleep-battery" height="140"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- NUTRITION, WEIGHT & DAILY LOG -->
+        <section data-view="nutrition" class="view hidden">
+          <h1 class="view-title">Nutrition, Weight &amp; Daily Log</h1>
+          <p class="view-sub">Fuel on target, logged straight from this screen.</p>
+
+          <div class="card insight-card" id="insight-nutrition"></div>
+
+          <div class="grid-stats" id="nutrition-stat-cards"></div>
+
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-label" style="margin-bottom:0.9rem;">Today vs Target</div>
+            <div id="macro-progress"></div>
+          </div>
+
+          <div class="card" style="margin-bottom:1rem;">
+            <div class="card-label" style="margin-bottom:0.75rem;">Streak &mdash; days on target</div>
+            <div class="streak-wrap" id="nutrition-streak"></div>
+          </div>
+
+          <div class="grid-2col">
+            <div class="card">
+              <div class="card-label">Weight Progression</div>
+              <canvas id="chart-nutrition-weight" height="140"></canvas>
+            </div>
+            <div class="card">
+              <div class="card-label">Evening AI Nutrition Breakdown</div>
+              <div id="nutrition-ai-note" class="muted" style="font-size:0.875rem; line-height:1.5;">Waiting for tonight&rsquo;s run&hellip;</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:1rem; padding:1.25rem;">
+            <div class="form-eyebrow">Log now</div>
+            <form id="log-form" class="form-grid">
+              <div class="field">
+                <label>Current weight (kg)</label>
+                <input name="weight" type="number" step="0.1" placeholder="e.g. 92.4">
+              </div>
+              <div class="field">
+                <label>Food item</label>
+                <input name="food" type="text" placeholder="e.g. Chicken &amp; rice bowl">
+              </div>
+              <div class="field">
+                <label>Calories</label>
+                <input name="calories" type="number" placeholder="e.g. 650">
+              </div>
+              <div class="field">
+                <label>Protein (g)</label>
+                <input name="protein" type="number" placeholder="e.g. 55">
+              </div>
+              <div class="field">
+                <label>Carbs (g)</label>
+                <input name="carbs" type="number" placeholder="e.g. 70">
+              </div>
+              <div class="field">
+                <label>Fat (g)</label>
+                <input name="fat" type="number" placeholder="e.g. 18">
+              </div>
+              <button type="submit" class="btn-primary">Log entry</button>
+              <div id="log-error" class="form-error">Enter at least a weight, or a food item with calories.</div>
+              <div id="log-status" class="status-note hidden"></div>
+            </form>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+  <p class="footnote">Refreshed automatically at 06:00 &amp; 21:00 &middot; generated by your private AI coach</p>
+</div>
+
+<!-- Hidden iframe target so the Google Form POST never navigates the page away -->
+<iframe name="hidden-form-target" style="display:none"></iframe>
+
+<script>
+/* =========================================================================
+   CONFIG -- fill these in once you've created your Google Form (see README)
+   ========================================================================= */
+const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
+const GOOGLE_FORM_FIELDS = {
+  weight:   "entry.111111111",   // replace with your real entry.* IDs
+  food:     "entry.222222222",
+  calories: "entry.333333333",
+  protein:  "entry.444444444",
+  carbs:    "entry.555555555",
+  fat:      "entry.666666666",
+};
+
+/* ========================================================================= */
+
+const state = { data: null };
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+const fmt = (v, d = "\u2014") => (v === null || v === undefined || v === "" ? d : v);
+
+function baseLineOptions(extra = {}) {
+  return Object.assign({
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { labels: { color: "#82838f", boxWidth: 10, font: { size: 11 } } } },
+    scales: {
+      x: { ticks: { color: "#82838f", font: { size: 10 } }, grid: { color: "rgba(255,255,255,0.05)" } },
+      y: { ticks: { color: "#82838f", font: { size: 10 } }, grid: { color: "rgba(255,255,255,0.05)" } },
+    },
+  }, extra);
+}
+
+const chartInstances = {};
+function makeChart(canvasId, config) {
+  if (chartInstances[canvasId]) chartInstances[canvasId].destroy();
+  const chart = new Chart($(`#${canvasId}`), config);
+  chartInstances[canvasId] = chart;
+  return chart;
+}
+
+function statCard({ label, value, unit = "", accent = "teal" }) {
+  return `<div class="card stat-card">
+    <div class="stat-label truncate">${label}</div>
+    <div class="stat-value accent-${accent}">${fmt(value)}<span class="stat-unit">${value != null ? unit : ""}</span></div>
+  </div>`;
+}
+
+const INSIGHT_ACCENTS = {
+  overview: "teal", plan: "amber", training: "green",
+  gym: "purple", sleep: "blue", nutrition: "pink",
+};
+
+function renderInsightCard(view, insights) {
+  const el = $(`#insight-${view}`);
+  if (!el) return;
+  const accent = INSIGHT_ACCENTS[view] || "teal";
+  el.style.borderLeftColor = `var(--${accent})`;
+  const data = insights && insights[view];
+  if (!data || !data.summary) {
+    el.innerHTML = `
+      <div class="insight-eyebrow"><span class="insight-dot" style="background:var(--${accent})"></span>AI Insight</div>
+      <div class="muted" style="font-size:0.875rem;">No insight for this run yet &mdash; the next sync will populate it.</div>`;
+    return;
+  }
+  el.innerHTML = `
+    <div class="insight-eyebrow"><span class="insight-dot" style="background:var(--${accent})"></span>AI Insight</div>
+    <div class="insight-summary">${data.summary}</div>
+    ${data.suggestion ? `<div class="insight-suggestion"><span class="insight-suggestion-tag" style="color:var(--${accent})">Suggested</span>${data.suggestion}</div>` : ""}
+  `;
+}
+
+/* ---------------------------- SIDEBAR DRAWER (mobile) ---------------------------- */
+const sidebarEl = $("#sidebar");
+const backdropEl = $("#sidebar-backdrop");
+const menuToggleEl = $("#menu-toggle");
+
+function setSidebarOpen(open) {
+  sidebarEl.classList.toggle("open", open);
+  backdropEl.classList.toggle("open", open);
+  menuToggleEl.classList.toggle("open", open);
+}
+menuToggleEl.addEventListener("click", () => setSidebarOpen(!sidebarEl.classList.contains("open")));
+backdropEl.addEventListener("click", () => setSidebarOpen(false));
+
+/* ---------------------------- NAV ---------------------------- */
+$$(".nav-item").forEach(btn => {
+  btn.addEventListener("click", () => {
+    showView(btn.dataset.view);
+    setSidebarOpen(false); // tapping a section closes the mobile drawer automatically
+  });
+});
+
+/* ---------------------------- RENDERERS ---------------------------- */
+function renderOverview(d) {
+  renderInsightCard("overview", d.ai_coach && d.ai_coach.insights);
+  const ov = d.overview || {};
+  $("#ov-stat-cards").innerHTML = [
+    statCard({ label: "Weight", value: ov.weight_kg, unit: "kg" }),
+    statCard({ label: "Resting HR", value: ov.resting_hr, unit: "bpm", accent: "pink" }),
+    statCard({ label: "HRV", value: ov.hrv, unit: "ms", accent: "green" }),
+    statCard({ label: "Sleep", value: ov.sleep_hours, unit: "h", accent: "purple" }),
+    statCard({ label: "Steps", value: ov.steps, accent: "teal" }),
+    statCard({ label: "Body Battery", value: ov.body_battery, unit: "/100", accent: "amber" }),
+  ].join("");
+
+  const hist = ov.history_90d || [];
+  const labels = hist.map(r => r.date);
+  makeChart("chart-ov-weight", {
+    type: "line",
+    data: { labels, datasets: [{ data: hist.map(r => r.weight_kg ?? null), borderColor: "#e8b93f", backgroundColor: "rgba(232,185,63,0.08)", fill: true, tension: 0.35, pointRadius: 0, spanGaps: true }] },
+    options: baseLineOptions({ plugins: { legend: { display: false } } }),
+  });
+  makeChart("chart-ov-recovery", {
+    type: "line",
+    data: { labels, datasets: [
+      { label: "RHR", data: hist.map(r => r.resting_hr ?? null), borderColor: "#fb7c8c", pointRadius: 0, tension: 0.35, spanGaps: true },
+      { label: "HRV", data: hist.map(r => r.hrv ?? null), borderColor: "#3fce8c", pointRadius: 0, tension: 0.35, spanGaps: true },
+    ] },
+    options: baseLineOptions(),
+  });
+}
+
+function renderPlan(d) {
+  renderInsightCard("plan", d.ai_coach && d.ai_coach.insights);
+  const plan = d.plan || {};
+  const hist = plan.weight_history || [];
+  const glide = plan.glide_path || [];
+  const current = plan.current_weight_kg;
+
+  // "vs target today": most recent glide-path point on or before today
+  const todayStr = (d.generated_at || new Date().toISOString()).slice(0, 10);
+  let targetToday = null;
+  for (const p of glide) { if (p.date <= todayStr) targetToday = p.target_weight_kg; }
+  const vsTarget = (current != null && targetToday != null) ? +(current - targetToday).toFixed(1) : null;
+  const vsTargetLabel = vsTarget != null ? (vsTarget > 0 ? `+${vsTarget}` : `${vsTarget}`) : null;
+
+  $("#plan-stat-cards").innerHTML = [
+    statCard({ label: "Current Weight", value: current, unit: "kg" }),
+    statCard({ label: "vs Target Today", value: vsTargetLabel, unit: "kg", accent: (vsTarget != null && vsTarget <= 0) ? "green" : "amber" }),
+    statCard({ label: "24wk Target", value: plan.target_weight_kg, unit: "kg", accent: "amber" }),
+    statCard({ label: "Day Type", value: d.day_type ? d.day_type.replace("_", " ") : null, accent: "teal" }),
+  ].join("");
+  $("#plan-weight-label").textContent = (current != null && plan.target_weight_kg != null)
+    ? `${current} kg \u2192 ${plan.target_weight_kg} kg` : (current != null ? `${current} kg` : "\u2014");
+
+  const allDates = Array.from(new Set([...hist.map(r => r.date), ...glide.map(r => r.date)])).sort();
+  const histMap = Object.fromEntries(hist.map(r => [r.date, r.weight_kg]));
+  const glideMap = Object.fromEntries(glide.map(r => [r.date, r.target_weight_kg]));
+
+  makeChart("chart-plan-glide", {
+    type: "line",
+    data: {
+      labels: allDates,
+      datasets: [
+        { label: "Logged weight", data: allDates.map(dt => histMap[dt] ?? null), borderColor: "#2dd4bf", backgroundColor: "rgba(45,212,191,0.08)", fill: true, tension: 0.3, pointRadius: 2, spanGaps: true },
+        { label: "Target glide path", data: allDates.map(dt => glideMap[dt] ?? null), borderColor: "#82838f", borderDash: [6, 4], pointRadius: 0, tension: 0, spanGaps: true },
+      ],
+    },
+    options: baseLineOptions(),
+  });
+
+  const milestones = plan.milestones || [];
+  $("#plan-milestones").innerHTML = milestones.length ? milestones.map((m, i) => `
+    <div class="card">
+      <div class="milestone-eyebrow">Phase ${i + 1} &middot; wk ${m.week}</div>
+      <div class="milestone-title">${m.target_weight_kg} kg</div>
+      <div class="milestone-note">${m.target_delta_kg > 0 ? "+" : ""}${m.target_delta_kg} kg vs ${plan.start_weight_kg ?? "start"}kg on ${plan.start_date ?? "\u2014"}</div>
+    </div>`).join("") : `<div class="muted" style="font-size:0.85rem;">Log a first weight entry to anchor the 24-week arc and see milestones here.</div>`;
+}
+
+function renderTraining(d) {
+  renderInsightCard("training", d.ai_coach && d.ai_coach.insights);
+  const gym = d.gym || {};
+  const ov = d.overview || {};
+  const training = d.training || {};
+  const hist = ov.history_90d || [];
+
+  const readiness = training.readiness;
+  const gaugeEl = $("#readiness-gauge");
+  if (readiness) {
+    const color = readiness.score >= 70 ? "var(--green)" : readiness.score >= 50 ? "var(--amber)" : "var(--pink)";
+    gaugeEl.style.setProperty("--pct", `${readiness.score}%`);
+    gaugeEl.style.setProperty("--color", color);
+    gaugeEl.innerHTML = `<div class="gauge-inner"><div class="gauge-value">${readiness.score}</div><div class="gauge-label">${readiness.label}</div></div>`;
+    $("#readiness-detail").textContent = "Composite of HRV, sleep, resting HR and body battery vs your recent baseline.";
+  } else {
+    gaugeEl.style.setProperty("--pct", "0%");
+    gaugeEl.innerHTML = `<div class="gauge-inner"><div class="gauge-value">\u2014</div><div class="gauge-label">No data</div></div>`;
+    $("#readiness-detail").textContent = "Not enough telemetry history synced yet to compute readiness.";
+  }
+
+  const load = training.load;
+  if (load && load.acwr != null) {
+    const pillColor = load.label === "Optimal" ? "green" : load.label === "Undertrained" ? "blue" : load.label === "Elevated" ? "amber" : "pink";
+    $("#load-detail").innerHTML = `
+      <div class="load-stats">
+        <div><div class="stat-label">Acute (7d)</div><div class="mono" style="font-weight:600;">${load.acute}</div></div>
+        <div><div class="stat-label">Chronic (28d)</div><div class="mono" style="font-weight:600;">${load.chronic}</div></div>
+        <div><div class="stat-label">Ratio</div><div class="mono" style="font-weight:600;">${load.acwr}</div></div>
+      </div>
+      <span class="load-pill" style="color:var(--${pillColor});">${load.label}</span>`;
+  } else {
+    $("#load-detail").innerHTML = `<div class="muted" style="font-size:0.85rem; margin-top:0.5rem;">Not enough session and telemetry history yet to estimate load balance.</div>`;
+  }
+
+  const consistency = training.consistency;
+  $("#training-stat-cards").innerHTML = [
+    statCard({ label: "Consistency", value: consistency ? consistency.adherence_pct : null, unit: "%", accent: "green" }),
+    statCard({ label: "Sessions Tracked", value: gym.sessions_tracked, accent: "purple" }),
+    statCard({ label: "Steps Today", value: ov.steps, accent: "teal" }),
+    statCard({ label: "VO2max (latest)", value: hist.length ? hist[hist.length - 1].vo2max : null, accent: "green" }),
+    statCard({ label: "Day Type", value: d.day_type ? d.day_type.replace("_", " ") : null, accent: "amber" }),
+  ].join("");
+
+  makeChart("chart-training-steps", {
+    type: "bar",
+    data: { labels: hist.map(r => r.date), datasets: [{ data: hist.map(r => r.steps ?? null), backgroundColor: "rgba(45,212,191,0.5)" }] },
+    options: baseLineOptions({ plugins: { legend: { display: false } } }),
+  });
+  makeChart("chart-training-vo2", {
+    type: "line",
+    data: { labels: hist.map(r => r.date), datasets: [{ data: hist.map(r => r.vo2max ?? null), borderColor: "#3fce8c", pointRadius: 0, tension: 0.35, spanGaps: true }] },
+    options: baseLineOptions({ plugins: { legend: { display: false } } }),
+  });
+
+  const zoneEl = $("#zone-distribution");
+  if (training.zone_distribution) {
+    // Reserved for once per-activity HR-zone minutes are available from a
+    // richer telemetry export -- render horizontal zone bars here.
+  } else {
+    zoneEl.innerHTML = `<div class="muted" style="font-size:0.85rem; line-height:1.5;">Needs per-activity heart-rate data that Hevy doesn't track and today's telemetry export doesn't include yet. Once your Health Sync export carries per-session HR zone minutes, map them in <span class="mono">ingest_telemetry.py</span> and this fills in automatically.</div>`;
+  }
+
+  const runs = (d.running && d.running.recent_runs) || [];
+  $("#runs-list").innerHTML = runs.length ? runs.map(r => `
+    <div class="row-line"><span>${fmt(r.date)}</span><span class="muted">${fmt(r.distance_km)} km</span><span class="muted">${fmt(r.pace)}</span></div>`).join("")
+    : `<div class="muted" style="font-size:0.85rem;">No runs synced yet &mdash; once Health Sync exports activity data here, they'll show up automatically. Extend <span class="mono">ingest_telemetry.py</span> to map your export's run columns.</div>`;
+}
+
+function renderGym(d) {
+  renderInsightCard("gym", d.ai_coach && d.ai_coach.insights);
+  const gym = d.gym || {};
+  const session = gym.recent_session;
+  $("#gym-recent-session").innerHTML = session ? `
+    <div class="row" style="align-items:center; margin-bottom:1rem;">
+      <div style="font-family:var(--font-display); font-size:1.05rem; font-weight:600;">${fmt(session.title)}</div>
+      <div class="mono muted" style="font-size:0.72rem;">${fmt(session.date)}</div>
+    </div>
+    <div class="session-stats">
+      <div><div class="stat-label">Duration</div><div class="mono stat-value">${fmt(session.duration_min)}m</div></div>
+      <div><div class="stat-label">Volume</div><div class="mono stat-value">${fmt(session.total_volume_kg)}kg</div></div>
+      <div><div class="stat-label">Exercises</div><div class="mono stat-value">${session.exercises ? session.exercises.length : "\u2014"}</div></div>
+    </div>
+    <div>
+      ${(session.exercises || []).map(ex => `
+        <div class="row-line"><span>${ex.name}</span><span class="muted">${ex.sets} sets &middot; ${ex.volume_kg}kg</span></div>`).join("")}
+    </div>` : `<div class="muted" style="font-size:0.875rem;">No session logged yet today &mdash; tag one in Hevy and it'll appear here on the next sync.</div>`;
+
+  const prs = gym.personal_records || [];
+  $("#gym-prs").innerHTML = prs.length ? prs.map(pr => `
+    <div class="row-line"><span class="truncate" style="padding-right:0.5rem;">${pr.exercise}</span><span class="mono accent-purple" style="white-space:nowrap;">${pr.est_1rm_kg}kg</span></div>`).join("")
+    : `<div class="muted">Log a few sessions in Hevy and PRs will populate automatically.</div>`;
+
+  const routines = gym.routines || [];
+  $("#gym-routines").innerHTML = routines.length ? routines.map((r, i) => `
+    <div class="card">
+      <div class="routine-header">
+        <span class="routine-letter">${String.fromCharCode(65 + i)}</span>
+        <span class="routine-title">${r.name}</span>
+      </div>
+      <div>
+        ${r.exercises.map(ex => `
+          <div class="row-line"><span>${ex.name}</span><span class="muted mono">${ex.target_sets || "\u2014"} &times; ${ex.target_reps || "\u2014"}</span></div>`).join("")}
+      </div>
+    </div>`).join("") : `<div class="muted" style="font-size:0.875rem;">No routines found on your Hevy account yet.</div>`;
+}
+
+function renderSleep(d) {
+  renderInsightCard("sleep", d.ai_coach && d.ai_coach.insights);
+  const s = d.sleep || {};
+  const last = s.last_night || {};
+  $("#sleep-stat-cards").innerHTML = [
+    statCard({ label: "Sleep Duration", value: last.sleep_hours, unit: "h", accent: "purple" }),
+    statCard({ label: "Sleep Score", value: last.sleep_score, unit: "/100", accent: "teal" }),
+    statCard({ label: "Stress", value: last.stress, accent: "pink" }),
+    statCard({ label: "Body Battery", value: last.body_battery, unit: "/100", accent: "amber" }),
+  ].join("");
+
+  const hist = s.history_90d || [];
+  makeChart("chart-sleep-duration", {
+    type: "line",
+    data: { labels: hist.map(r => r.date), datasets: [{ data: hist.map(r => r.sleep_hours ?? null), borderColor: "#a78bfa", backgroundColor: "rgba(167,139,250,0.08)", fill: true, tension: 0.35, pointRadius: 0, spanGaps: true }] },
+    options: baseLineOptions({ plugins: { legend: { display: false } } }),
+  });
+  makeChart("chart-sleep-battery", {
+    type: "line",
+    data: { labels: hist.map(r => r.date), datasets: [
+      { label: "Body Battery", data: hist.map(r => r.body_battery ?? null), borderColor: "#e8b93f", yAxisID: "y", pointRadius: 0, tension: 0.35, spanGaps: true },
+      { label: "Stress", data: hist.map(r => r.stress ?? null), borderColor: "#fb7c8c", yAxisID: "y1", pointRadius: 0, tension: 0.35, spanGaps: true },
+    ] },
+    options: baseLineOptions({
+      scales: {
+        x: { ticks: { color: "#82838f", font: { size: 10 } }, grid: { color: "rgba(255,255,255,0.05)" } },
+        y: { position: "left", ticks: { color: "#82838f", font: { size: 10 } }, grid: { color: "rgba(255,255,255,0.05)" } },
+        y1: { position: "right", ticks: { color: "#82838f", font: { size: 10 } }, grid: { display: false } },
+      },
+    }),
+  });
+}
+
+const MACRO_DEFS = [
+  { key: "calories_total", targetKey: "calories", label: "Calories", unit: "kcal", accent: "amber" },
+  { key: "protein_total_g", targetKey: "protein_g", label: "Protein", unit: "g", accent: "green" },
+  { key: "carbs_total_g", targetKey: "carbs_g", label: "Carbs", unit: "g", accent: "teal" },
+  { key: "fat_total_g", targetKey: "fat_g", label: "Fat", unit: "g", accent: "purple" },
+];
+
+function renderMacroProgress(today, targets) {
+  $("#macro-progress").innerHTML = MACRO_DEFS.map(m => {
+    const logged = today[m.key] ?? 0;
+    const target = targets[m.targetKey];
+    const pct = target ? Math.round((logged / target) * 100) : 0;
+    const fillWidth = Math.max(0, Math.min(100, pct));
+    return `<div class="progress-row">
+      <div class="progress-row-head">
+        <span class="label">${m.label}</span>
+        <span class="mono muted">${logged}${m.unit === "kcal" ? "" : m.unit} / ${target ?? "\u2014"}${m.unit === "kcal" ? " kcal" : m.unit} &middot; ${pct}%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:${fillWidth}%; background:var(--${m.accent})"></div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function renderNutrition(d) {
+  renderInsightCard("nutrition", d.ai_coach && d.ai_coach.insights);
+  const n = d.nutrition || {};
+  const targets = n.targets || {};
+  const today = n.today || {};
+  $("#nutrition-stat-cards").innerHTML = [
+    statCard({ label: `Calories (${targets.label || "\u2014"})`, value: today.calories_total, unit: `/ ${targets.calories ?? "\u2014"}`, accent: "amber" }),
+    statCard({ label: "Protein", value: today.protein_total_g, unit: `/ ${targets.protein_g ?? "\u2014"}g`, accent: "green" }),
+    statCard({ label: "Carbs", value: today.carbs_total_g, unit: `/ ${targets.carbs_g ?? "\u2014"}g`, accent: "teal" }),
+    statCard({ label: "Fat", value: today.fat_total_g, unit: `/ ${targets.fat_g ?? "\u2014"}g`, accent: "purple" }),
+  ].join("");
+
+  renderMacroProgress(today, targets);
+
+  const streak = n.streak || [];
+  $("#nutrition-streak").innerHTML = streak.length ? streak.map(s => `
+    <span class="streak-cell" style="background:${s.logged ? '#3fce8c' : '#23242e'}" title="${s.date}"></span>`).join("")
+    : `<div class="muted" style="font-size:0.875rem;">Log a few days and your streak grid fills in here.</div>`;
+
+  const wh = (d.plan && d.plan.weight_history) || [];
+  makeChart("chart-nutrition-weight", {
+    type: "line",
+    data: { labels: wh.map(r => r.date), datasets: [{ data: wh.map(r => r.weight_kg), borderColor: "#e8b93f", pointRadius: 2, tension: 0.3 }] },
+    options: baseLineOptions({ plugins: { legend: { display: false } } }),
+  });
+
+  const coach = d.ai_coach || {};
+  $("#nutrition-ai-note").textContent = coach.nutrition_directive || coach.weight_trend_note || "No AI note logged for this run yet.";
+}
+
+const RENDERERS = {
+  overview: renderOverview,
+  plan: renderPlan,
+  training: renderTraining,
+  gym: renderGym,
+  sleep: renderSleep,
+  nutrition: renderNutrition,
+};
+const viewRendered = { overview: false, plan: false, training: false, gym: false, sleep: false, nutrition: false };
+
+function showView(view) {
+  $$(".nav-item").forEach(b => b.classList.toggle("active", b.dataset.view === view));
+  $$(".view").forEach(v => v.classList.toggle("hidden", v.dataset.view !== view));
+  $("#route-breadcrumb").textContent = "/" + view;
+  // Charts drawn into a display:none container size to zero, so each view's
+  // charts are only built the first time it actually becomes visible.
+  if (!viewRendered[view] && state.data) {
+    RENDERERS[view](state.data);
+    viewRendered[view] = true;
+  }
+}
+
+function renderAll(d) {
+  state.data = d;
+  Object.keys(viewRendered).forEach(k => (viewRendered[k] = false));
+  $("#last-sync").textContent = d.generated_at ? `synced ${new Date(d.generated_at).toLocaleString()}` : "sync pending";
+  $("#phase-tag").textContent = (d.plan && d.plan.phase_label) || "Phase 3 \u00b7 Lean Output";
+  $("#sidebar-headline").textContent = (d.ai_coach && d.ai_coach.headline) || "Waiting for this run\u2019s blueprint\u2026";
+  const activeView = $(".nav-item.active")?.dataset.view || "overview";
+  showView(activeView);
+}
+
+/* ---------------------------- LOAD DATA ---------------------------- */
+async function loadDashboard() {
+  try {
+    const res = await fetch("dashboard_data.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("no data file yet");
+    const data = await res.json();
+    renderAll(data);
+  } catch (e) {
+    $("#last-sync").textContent = "no data yet \u2014 first cron run will populate this";
+    console.warn(e);
+  } finally {
+    $("#loading-bar").classList.add("done");
+  }
+}
+loadDashboard();
+
+/* ---------------------------- LOG FORM -> GOOGLE FORM ---------------------------- */
+$("#log-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const weight = fd.get("weight");
+  const food = fd.get("food");
+  const calories = fd.get("calories");
+  const protein = fd.get("protein");
+  const carbs = fd.get("carbs");
+  const fat = fd.get("fat");
+
+  const errorEl = $("#log-error");
+  const hasWeight = weight && parseFloat(weight) > 0;
+  const hasFood = food && food.trim().length > 0 && calories && parseFloat(calories) > 0;
+  if (!hasWeight && !hasFood) {
+    errorEl.classList.add("show");
+    return;
+  }
+  errorEl.classList.remove("show");
+
+  const params = new URLSearchParams();
+  for (const [key, entryId] of Object.entries(GOOGLE_FORM_FIELDS)) {
+    const val = fd.get(key);
+    if (val) params.set(entryId, val);
+  }
+
+  // Build a real <form> that POSTs to the hidden iframe -- this avoids CORS
+  // entirely, since it's a normal form submission, not a fetch().
+  const form = document.createElement("form");
+  form.action = GOOGLE_FORM_ACTION_URL;
+  form.method = "POST";
+  form.target = "hidden-form-target";
+  for (const [key, val] of params.entries()) {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = val;
+    form.appendChild(input);
+  }
+  document.body.appendChild(form);
+  form.submit();
+  form.remove();
+
+  // Optimistic update: reflect what was just logged immediately rather than
+  // waiting for the next 6am/9pm cron run to rewrite dashboard_data.json.
+  if (state.data) {
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const n = (state.data.nutrition = state.data.nutrition || {});
+    const today = (n.today = n.today || { items: [], calories_total: 0, protein_total_g: 0, carbs_total_g: 0, fat_total_g: 0 });
+
+    if (hasFood) {
+      const cal = parseFloat(calories) || 0;
+      const pro = parseFloat(protein) || 0;
+      const cb = parseFloat(carbs) || 0;
+      const ft = parseFloat(fat) || 0;
+      today.items = [...(today.items || []), { item: food, calories: cal, protein_g: pro, carbs_g: cb, fat_g: ft }];
+      today.calories_total = +((today.calories_total || 0) + cal).toFixed(1);
+      today.protein_total_g = +((today.protein_total_g || 0) + pro).toFixed(1);
+      today.carbs_total_g = +((today.carbs_total_g || 0) + cb).toFixed(1);
+      today.fat_total_g = +((today.fat_total_g || 0) + ft).toFixed(1);
+    }
+
+    if (hasWeight) {
+      const w = parseFloat(weight);
+      state.data.plan = state.data.plan || {};
+      state.data.plan.current_weight_kg = w;
+      state.data.overview = state.data.overview || {};
+      state.data.overview.weight_kg = w;
+      const wh = (state.data.plan.weight_history = state.data.plan.weight_history || []);
+      const idx = wh.findIndex(r => r.date === todayStr);
+      if (idx >= 0) wh[idx] = { date: todayStr, weight_kg: w };
+      else wh.push({ date: todayStr, weight_kg: w });
+    }
+
+    n.streak = n.streak || [];
+    const streakIdx = n.streak.findIndex(s => s.date === todayStr);
+    if (streakIdx >= 0) n.streak[streakIdx].logged = true;
+    else n.streak.push({ date: todayStr, logged: true });
+
+    // Re-render whichever views the person has already opened so the change is visible right away.
+    Object.keys(viewRendered).forEach(view => {
+      if (viewRendered[view]) RENDERERS[view](state.data);
+    });
+  }
+
+  const status = $("#log-status");
+  status.textContent = "Logged \u2014 reflected below now, and synced to your Sheet after the next 6am/9pm run.";
+  status.classList.remove("hidden");
+  e.target.reset();
+  setTimeout(() => status.classList.add("hidden"), 4500);
+});
+</script>
+</body>
+</html>

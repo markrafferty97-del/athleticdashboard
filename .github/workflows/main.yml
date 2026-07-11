@@ -1,0 +1,86 @@
+name: Athletic Dashboard - Twice-Daily Refresh
+
+on:
+  schedule:
+    # NOTE: GitHub Actions cron is always UTC and does NOT shift for daylight saving.
+    # These two times target 06:00 and 21:00 *British Summer Time* (UTC+1, current
+    # season). Once BST ends (UTC+0, winter), these will fire at 05:00 / 20:00 local
+    # instead -- shift both lines by 1 hour in October / March if you want it exact
+    # year-round, or just leave it; a 1-hour drift twice a year is harmless here.
+    - cron: "0 5 * * *"   # 06:00 BST -> Morning Blueprint
+    - cron: "0 20 * * *"  # 21:00 BST -> Evening Recap
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Force a specific run mode"
+        required: true
+        default: "morning"
+        type: choice
+        options: [morning, evening]
+
+permissions:
+  contents: write   # to commit the refreshed dashboard_data.json back to the repo
+  pages: write       # to deploy to GitHub Pages
+  id-token: write    # required by actions/deploy-pages
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Determine run mode
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=${{ inputs.mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 5 * * *" ]; then
+            echo "mode=morning" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=evening" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run ingestion + AI coach
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          HEVY_API_KEY: ${{ secrets.HEVY_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_DRIVE_TELEMETRY_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_TELEMETRY_FOLDER_ID }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+        run: python scripts/build_dashboard.py --mode ${{ steps.mode.outputs.mode }}
+
+      - name: Commit refreshed data back to repo
+        run: |
+          git config user.name "dashboard-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add web/dashboard_data.json
+          git diff --quiet --cached || git commit -m "Auto-refresh dashboard data (${{ steps.mode.outputs.mode }})"
+          git push
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

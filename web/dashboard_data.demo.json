@@ -1,0 +1,1683 @@
+{
+  "generated_at": "2026-07-10T05:00:12+00:00",
+  "mode": "morning",
+  "day_type": "GYM_LIFTING",
+  "overview": {
+    "weight_kg": 94.6,
+    "resting_hr": 52,
+    "hrv": 58,
+    "sleep_hours": 6.7,
+    "steps": 7266,
+    "body_battery": 84,
+    "history_90d": [
+      {
+        "date": "2026-05-26",
+        "weight_kg": 95.8,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.3,
+        "steps": 7386,
+        "body_battery": 75,
+        "stress": 25,
+        "vo2max": 50.5,
+        "sleep_score": 79
+      },
+      {
+        "date": "2026-05-27",
+        "weight_kg": 95.8,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 8.0,
+        "steps": 8711,
+        "body_battery": 77,
+        "stress": 11,
+        "vo2max": 50.5,
+        "sleep_score": 64
+      },
+      {
+        "date": "2026-05-28",
+        "weight_kg": 95.8,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 8.1,
+        "steps": 7552,
+        "body_battery": 78,
+        "stress": 34,
+        "vo2max": 50.5,
+        "sleep_score": 85
+      },
+      {
+        "date": "2026-05-29",
+        "weight_kg": 95.7,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.0,
+        "steps": 7180,
+        "body_battery": 70,
+        "stress": 34,
+        "vo2max": 50.5,
+        "sleep_score": 82
+      },
+      {
+        "date": "2026-05-30",
+        "weight_kg": 95.7,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.1,
+        "steps": 6815,
+        "body_battery": 92,
+        "stress": 25,
+        "vo2max": 50.5,
+        "sleep_score": 73
+      },
+      {
+        "date": "2026-05-31",
+        "weight_kg": 95.6,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 6.8,
+        "steps": 8695,
+        "body_battery": 71,
+        "stress": 13,
+        "vo2max": 50.6,
+        "sleep_score": 87
+      },
+      {
+        "date": "2026-06-01",
+        "weight_kg": 95.7,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.9,
+        "steps": 4505,
+        "body_battery": 61,
+        "stress": 21,
+        "vo2max": 50.6,
+        "sleep_score": 92
+      },
+      {
+        "date": "2026-06-02",
+        "weight_kg": 95.6,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 8.3,
+        "steps": 5176,
+        "body_battery": 74,
+        "stress": 42,
+        "vo2max": 50.6,
+        "sleep_score": 85
+      },
+      {
+        "date": "2026-06-03",
+        "weight_kg": 95.6,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.0,
+        "steps": 7611,
+        "body_battery": 69,
+        "stress": 22,
+        "vo2max": 50.6,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-04",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.7,
+        "steps": 4977,
+        "body_battery": 87,
+        "stress": 37,
+        "vo2max": 50.6,
+        "sleep_score": 84
+      },
+      {
+        "date": "2026-06-05",
+        "weight_kg": 95.6,
+        "resting_hr": 54,
+        "hrv": 59,
+        "sleep_hours": 6.7,
+        "steps": 6337,
+        "body_battery": 77,
+        "stress": 46,
+        "vo2max": 50.6,
+        "sleep_score": 64
+      },
+      {
+        "date": "2026-06-06",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.2,
+        "steps": 6609,
+        "body_battery": 67,
+        "stress": 38,
+        "vo2max": 50.6,
+        "sleep_score": 80
+      },
+      {
+        "date": "2026-06-07",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.3,
+        "steps": 5801,
+        "body_battery": 59,
+        "stress": 48,
+        "vo2max": 50.7,
+        "sleep_score": 86
+      },
+      {
+        "date": "2026-06-08",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.0,
+        "steps": 9831,
+        "body_battery": 82,
+        "stress": 31,
+        "vo2max": 50.7,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-09",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.1,
+        "steps": 8284,
+        "body_battery": 76,
+        "stress": 26,
+        "vo2max": 50.7,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-10",
+        "weight_kg": 95.5,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.9,
+        "steps": 7194,
+        "body_battery": 76,
+        "stress": 46,
+        "vo2max": 50.7,
+        "sleep_score": 56
+      },
+      {
+        "date": "2026-06-11",
+        "weight_kg": 95.5,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.9,
+        "steps": 7486,
+        "body_battery": 94,
+        "stress": 29,
+        "vo2max": 50.7,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-12",
+        "weight_kg": 95.4,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.2,
+        "steps": 2889,
+        "body_battery": 66,
+        "stress": 38,
+        "vo2max": 50.7,
+        "sleep_score": 69
+      },
+      {
+        "date": "2026-06-13",
+        "weight_kg": 95.4,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.3,
+        "steps": 8092,
+        "body_battery": 61,
+        "stress": 31,
+        "vo2max": 50.7,
+        "sleep_score": 96
+      },
+      {
+        "date": "2026-06-14",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.8,
+        "steps": 8116,
+        "body_battery": 86,
+        "stress": 26,
+        "vo2max": 50.7,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-15",
+        "weight_kg": 95.4,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.3,
+        "steps": 3797,
+        "body_battery": 81,
+        "stress": 52,
+        "vo2max": 50.8,
+        "sleep_score": 78
+      },
+      {
+        "date": "2026-06-16",
+        "weight_kg": 95.4,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 6.6,
+        "steps": 5050,
+        "body_battery": 53,
+        "stress": 34,
+        "vo2max": 50.8,
+        "sleep_score": 71
+      },
+      {
+        "date": "2026-06-17",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 8404,
+        "body_battery": 52,
+        "stress": 21,
+        "vo2max": 50.8,
+        "sleep_score": 80
+      },
+      {
+        "date": "2026-06-18",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.0,
+        "steps": 4250,
+        "body_battery": 88,
+        "stress": 27,
+        "vo2max": 50.8,
+        "sleep_score": 74
+      },
+      {
+        "date": "2026-06-19",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.4,
+        "steps": 10132,
+        "body_battery": 42,
+        "stress": 22,
+        "vo2max": 50.9,
+        "sleep_score": 73
+      },
+      {
+        "date": "2026-06-20",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.6,
+        "steps": 3665,
+        "body_battery": 67,
+        "stress": 9,
+        "vo2max": 50.9,
+        "sleep_score": 87
+      },
+      {
+        "date": "2026-06-21",
+        "weight_kg": 95.2,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 6.7,
+        "steps": 6605,
+        "body_battery": 67,
+        "stress": 23,
+        "vo2max": 50.9,
+        "sleep_score": 82
+      },
+      {
+        "date": "2026-06-22",
+        "weight_kg": 95.1,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 4266,
+        "body_battery": 84,
+        "stress": 15,
+        "vo2max": 50.9,
+        "sleep_score": 79
+      },
+      {
+        "date": "2026-06-23",
+        "weight_kg": 95.1,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 6.1,
+        "steps": 8136,
+        "body_battery": 64,
+        "stress": 12,
+        "vo2max": 50.9,
+        "sleep_score": 82
+      },
+      {
+        "date": "2026-06-24",
+        "weight_kg": 95.1,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.9,
+        "steps": 9613,
+        "body_battery": 81,
+        "stress": 28,
+        "vo2max": 51.0,
+        "sleep_score": 87
+      },
+      {
+        "date": "2026-06-25",
+        "weight_kg": 95.0,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 5477,
+        "body_battery": 77,
+        "stress": 16,
+        "vo2max": 51.0,
+        "sleep_score": 79
+      },
+      {
+        "date": "2026-06-26",
+        "weight_kg": 95.0,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 8.3,
+        "steps": 6645,
+        "body_battery": 48,
+        "stress": 35,
+        "vo2max": 51.0,
+        "sleep_score": 77
+      },
+      {
+        "date": "2026-06-27",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 6.4,
+        "steps": 7147,
+        "body_battery": 73,
+        "stress": 28,
+        "vo2max": 51.0,
+        "sleep_score": 83
+      },
+      {
+        "date": "2026-06-28",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.7,
+        "steps": 7265,
+        "body_battery": 66,
+        "stress": 47,
+        "vo2max": 51.0,
+        "sleep_score": 64
+      },
+      {
+        "date": "2026-06-29",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 8.4,
+        "steps": 8328,
+        "body_battery": 65,
+        "stress": 17,
+        "vo2max": 51.0,
+        "sleep_score": 84
+      },
+      {
+        "date": "2026-06-30",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.1,
+        "steps": 5971,
+        "body_battery": 67,
+        "stress": 36,
+        "vo2max": 51.0,
+        "sleep_score": 80
+      },
+      {
+        "date": "2026-07-01",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.9,
+        "steps": 8633,
+        "body_battery": 71,
+        "stress": 27,
+        "vo2max": 51.1,
+        "sleep_score": 82
+      },
+      {
+        "date": "2026-07-02",
+        "weight_kg": 94.8,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 8384,
+        "body_battery": 63,
+        "stress": 41,
+        "vo2max": 51.1,
+        "sleep_score": 96
+      },
+      {
+        "date": "2026-07-03",
+        "weight_kg": 94.8,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.7,
+        "steps": 7177,
+        "body_battery": 74,
+        "stress": 41,
+        "vo2max": 51.1,
+        "sleep_score": 75
+      },
+      {
+        "date": "2026-07-04",
+        "weight_kg": 94.7,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 8.1,
+        "steps": 6230,
+        "body_battery": 75,
+        "stress": 8,
+        "vo2max": 51.1,
+        "sleep_score": 73
+      },
+      {
+        "date": "2026-07-05",
+        "weight_kg": 94.8,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 6.4,
+        "steps": 8105,
+        "body_battery": 75,
+        "stress": 30,
+        "vo2max": 51.0,
+        "sleep_score": 87
+      },
+      {
+        "date": "2026-07-06",
+        "weight_kg": 94.8,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 6.5,
+        "steps": 7602,
+        "body_battery": 73,
+        "stress": 27,
+        "vo2max": 51.1,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-07-07",
+        "weight_kg": 94.7,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 10412,
+        "body_battery": 85,
+        "stress": 17,
+        "vo2max": 51.1,
+        "sleep_score": 84
+      },
+      {
+        "date": "2026-07-08",
+        "weight_kg": 94.6,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 8.4,
+        "steps": 5928,
+        "body_battery": 90,
+        "stress": 24,
+        "vo2max": 51.1,
+        "sleep_score": 67
+      },
+      {
+        "date": "2026-07-09",
+        "weight_kg": 94.6,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 6.3,
+        "steps": 7720,
+        "body_battery": 62,
+        "stress": 30,
+        "vo2max": 51.1,
+        "sleep_score": 83
+      },
+      {
+        "date": "2026-07-10",
+        "weight_kg": 94.6,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 6.7,
+        "steps": 7266,
+        "body_battery": 84,
+        "stress": 33,
+        "vo2max": 51.1,
+        "sleep_score": 88
+      }
+    ]
+  },
+  "plan": {
+    "weight_history": [
+      {
+        "date": "2026-05-26",
+        "weight_kg": 95.8
+      },
+      {
+        "date": "2026-05-31",
+        "weight_kg": 95.6
+      },
+      {
+        "date": "2026-06-05",
+        "weight_kg": 95.6
+      },
+      {
+        "date": "2026-06-10",
+        "weight_kg": 95.5
+      },
+      {
+        "date": "2026-06-15",
+        "weight_kg": 95.4
+      },
+      {
+        "date": "2026-06-20",
+        "weight_kg": 95.3
+      },
+      {
+        "date": "2026-06-25",
+        "weight_kg": 95.0
+      },
+      {
+        "date": "2026-06-30",
+        "weight_kg": 94.9
+      },
+      {
+        "date": "2026-07-05",
+        "weight_kg": 94.8
+      },
+      {
+        "date": "2026-07-10",
+        "weight_kg": 94.6
+      },
+      {
+        "date": "2026-07-10",
+        "weight_kg": 94.6
+      }
+    ],
+    "current_weight_kg": 94.6,
+    "phase_label": "Phase 3 \u00b7 Lean Output & Conditioning",
+    "glide_path": [
+      {
+        "date": "2026-05-26",
+        "target_weight_kg": 95.8
+      },
+      {
+        "date": "2026-06-02",
+        "target_weight_kg": 95.27
+      },
+      {
+        "date": "2026-06-09",
+        "target_weight_kg": 94.73
+      },
+      {
+        "date": "2026-06-16",
+        "target_weight_kg": 94.2
+      },
+      {
+        "date": "2026-06-23",
+        "target_weight_kg": 93.67
+      },
+      {
+        "date": "2026-06-30",
+        "target_weight_kg": 93.13
+      },
+      {
+        "date": "2026-07-07",
+        "target_weight_kg": 92.6
+      },
+      {
+        "date": "2026-07-14",
+        "target_weight_kg": 92.07
+      },
+      {
+        "date": "2026-07-21",
+        "target_weight_kg": 91.53
+      },
+      {
+        "date": "2026-07-28",
+        "target_weight_kg": 91.0
+      },
+      {
+        "date": "2026-08-04",
+        "target_weight_kg": 90.47
+      },
+      {
+        "date": "2026-08-11",
+        "target_weight_kg": 89.93
+      },
+      {
+        "date": "2026-08-18",
+        "target_weight_kg": 89.4
+      },
+      {
+        "date": "2026-08-25",
+        "target_weight_kg": 88.87
+      },
+      {
+        "date": "2026-09-01",
+        "target_weight_kg": 88.33
+      },
+      {
+        "date": "2026-09-08",
+        "target_weight_kg": 87.8
+      },
+      {
+        "date": "2026-09-15",
+        "target_weight_kg": 87.27
+      },
+      {
+        "date": "2026-09-22",
+        "target_weight_kg": 86.73
+      },
+      {
+        "date": "2026-09-29",
+        "target_weight_kg": 86.2
+      },
+      {
+        "date": "2026-10-06",
+        "target_weight_kg": 85.67
+      },
+      {
+        "date": "2026-10-13",
+        "target_weight_kg": 85.13
+      },
+      {
+        "date": "2026-10-20",
+        "target_weight_kg": 84.6
+      },
+      {
+        "date": "2026-10-27",
+        "target_weight_kg": 84.07
+      },
+      {
+        "date": "2026-11-03",
+        "target_weight_kg": 83.53
+      },
+      {
+        "date": "2026-11-10",
+        "target_weight_kg": 83.0
+      }
+    ],
+    "milestones": [
+      {
+        "week": 8,
+        "target_weight_kg": 91.53,
+        "target_delta_kg": -4.27
+      },
+      {
+        "week": 16,
+        "target_weight_kg": 87.27,
+        "target_delta_kg": -8.53
+      },
+      {
+        "week": 24,
+        "target_weight_kg": 83.0,
+        "target_delta_kg": -12.8
+      }
+    ],
+    "start_weight_kg": 95.8,
+    "start_date": "2026-05-26",
+    "target_weight_kg": 83.0,
+    "target_date": "2026-11-10"
+  },
+  "running": {
+    "recent_runs": [
+      {
+        "date": "2026-07-08",
+        "distance_km": 8.2,
+        "pace": "4:52/km"
+      },
+      {
+        "date": "2026-07-05",
+        "distance_km": 12.0,
+        "pace": "5:10/km"
+      },
+      {
+        "date": "2026-07-02",
+        "distance_km": 5.1,
+        "pace": "4:38/km"
+      },
+      {
+        "date": "2026-06-29",
+        "distance_km": 16.4,
+        "pace": "5:24/km"
+      }
+    ]
+  },
+  "gym": {
+    "sessions_tracked": 12,
+    "recent_session": {
+      "id": "demo",
+      "title": "Lift C \u2014 Full body",
+      "date": "2026-07-09",
+      "duration_min": 68,
+      "total_volume_kg": 10420,
+      "exercises": [
+        {
+          "name": "Trap-bar deadlift",
+          "sets": 4,
+          "volume_kg": 3040
+        },
+        {
+          "name": "Front squat",
+          "sets": 4,
+          "volume_kg": 2180
+        },
+        {
+          "name": "Chin-up (weighted)",
+          "sets": 3,
+          "volume_kg": 640
+        },
+        {
+          "name": "Barbell hip thrust",
+          "sets": 3,
+          "volume_kg": 2520
+        },
+        {
+          "name": "Face pull",
+          "sets": 3,
+          "volume_kg": 540
+        }
+      ]
+    },
+    "personal_records": [
+      {
+        "exercise": "Trap-bar deadlift",
+        "est_1rm_kg": 152.4,
+        "top_set": "128kg x 5"
+      },
+      {
+        "exercise": "Sumo deadlift",
+        "est_1rm_kg": 135.8,
+        "top_set": "118kg x 4"
+      },
+      {
+        "exercise": "Barbell hip thrust",
+        "est_1rm_kg": 141.2,
+        "top_set": "112kg x 6"
+      },
+      {
+        "exercise": "Front squat",
+        "est_1rm_kg": 108.6,
+        "top_set": "92kg x 5"
+      },
+      {
+        "exercise": "Bench press",
+        "est_1rm_kg": 104.3,
+        "top_set": "90kg x 5"
+      }
+    ],
+    "routines": [
+      {
+        "name": "Lift A \u2014 Upper Push/Pull",
+        "exercises": [
+          {
+            "name": "Bench press",
+            "target_sets": 4,
+            "target_reps": "5"
+          },
+          {
+            "name": "Seated cable row",
+            "target_sets": 4,
+            "target_reps": "10"
+          },
+          {
+            "name": "Overhead press",
+            "target_sets": 3,
+            "target_reps": "6-8"
+          },
+          {
+            "name": "Lat pulldown",
+            "target_sets": 3,
+            "target_reps": "10-12"
+          }
+        ]
+      },
+      {
+        "name": "Lift B \u2014 Lower",
+        "exercises": [
+          {
+            "name": "Sumo deadlift",
+            "target_sets": 4,
+            "target_reps": "5"
+          },
+          {
+            "name": "Wide-stance goblet squat",
+            "target_sets": 4,
+            "target_reps": "8"
+          },
+          {
+            "name": "Walking lunge",
+            "target_sets": 3,
+            "target_reps": "12/leg"
+          },
+          {
+            "name": "Calf raise",
+            "target_sets": 4,
+            "target_reps": "15"
+          }
+        ]
+      },
+      {
+        "name": "Lift C \u2014 Full body",
+        "exercises": [
+          {
+            "name": "Trap-bar deadlift",
+            "target_sets": 4,
+            "target_reps": "6"
+          },
+          {
+            "name": "Front squat",
+            "target_sets": 4,
+            "target_reps": "6-8"
+          },
+          {
+            "name": "Chin-up (weighted)",
+            "target_sets": 3,
+            "target_reps": "AMRAP"
+          },
+          {
+            "name": "Barbell hip thrust",
+            "target_sets": 3,
+            "target_reps": "8-10"
+          }
+        ]
+      }
+    ]
+  },
+  "sleep": {
+    "last_night": {
+      "sleep_hours": 6.7,
+      "sleep_score": 88,
+      "stress": 33,
+      "body_battery": 84
+    },
+    "history_90d": [
+      {
+        "date": "2026-05-26",
+        "weight_kg": 95.8,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.3,
+        "steps": 7386,
+        "body_battery": 75,
+        "stress": 25,
+        "vo2max": 50.5,
+        "sleep_score": 79
+      },
+      {
+        "date": "2026-05-27",
+        "weight_kg": 95.8,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 8.0,
+        "steps": 8711,
+        "body_battery": 77,
+        "stress": 11,
+        "vo2max": 50.5,
+        "sleep_score": 64
+      },
+      {
+        "date": "2026-05-28",
+        "weight_kg": 95.8,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 8.1,
+        "steps": 7552,
+        "body_battery": 78,
+        "stress": 34,
+        "vo2max": 50.5,
+        "sleep_score": 85
+      },
+      {
+        "date": "2026-05-29",
+        "weight_kg": 95.7,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.0,
+        "steps": 7180,
+        "body_battery": 70,
+        "stress": 34,
+        "vo2max": 50.5,
+        "sleep_score": 82
+      },
+      {
+        "date": "2026-05-30",
+        "weight_kg": 95.7,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.1,
+        "steps": 6815,
+        "body_battery": 92,
+        "stress": 25,
+        "vo2max": 50.5,
+        "sleep_score": 73
+      },
+      {
+        "date": "2026-05-31",
+        "weight_kg": 95.6,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 6.8,
+        "steps": 8695,
+        "body_battery": 71,
+        "stress": 13,
+        "vo2max": 50.6,
+        "sleep_score": 87
+      },
+      {
+        "date": "2026-06-01",
+        "weight_kg": 95.7,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.9,
+        "steps": 4505,
+        "body_battery": 61,
+        "stress": 21,
+        "vo2max": 50.6,
+        "sleep_score": 92
+      },
+      {
+        "date": "2026-06-02",
+        "weight_kg": 95.6,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 8.3,
+        "steps": 5176,
+        "body_battery": 74,
+        "stress": 42,
+        "vo2max": 50.6,
+        "sleep_score": 85
+      },
+      {
+        "date": "2026-06-03",
+        "weight_kg": 95.6,
+        "resting_hr": 54,
+        "hrv": 58,
+        "sleep_hours": 7.0,
+        "steps": 7611,
+        "body_battery": 69,
+        "stress": 22,
+        "vo2max": 50.6,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-04",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.7,
+        "steps": 4977,
+        "body_battery": 87,
+        "stress": 37,
+        "vo2max": 50.6,
+        "sleep_score": 84
+      },
+      {
+        "date": "2026-06-05",
+        "weight_kg": 95.6,
+        "resting_hr": 54,
+        "hrv": 59,
+        "sleep_hours": 6.7,
+        "steps": 6337,
+        "body_battery": 77,
+        "stress": 46,
+        "vo2max": 50.6,
+        "sleep_score": 64
+      },
+      {
+        "date": "2026-06-06",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.2,
+        "steps": 6609,
+        "body_battery": 67,
+        "stress": 38,
+        "vo2max": 50.6,
+        "sleep_score": 80
+      },
+      {
+        "date": "2026-06-07",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.3,
+        "steps": 5801,
+        "body_battery": 59,
+        "stress": 48,
+        "vo2max": 50.7,
+        "sleep_score": 86
+      },
+      {
+        "date": "2026-06-08",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.0,
+        "steps": 9831,
+        "body_battery": 82,
+        "stress": 31,
+        "vo2max": 50.7,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-09",
+        "weight_kg": 95.6,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.1,
+        "steps": 8284,
+        "body_battery": 76,
+        "stress": 26,
+        "vo2max": 50.7,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-10",
+        "weight_kg": 95.5,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.9,
+        "steps": 7194,
+        "body_battery": 76,
+        "stress": 46,
+        "vo2max": 50.7,
+        "sleep_score": 56
+      },
+      {
+        "date": "2026-06-11",
+        "weight_kg": 95.5,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.9,
+        "steps": 7486,
+        "body_battery": 94,
+        "stress": 29,
+        "vo2max": 50.7,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-12",
+        "weight_kg": 95.4,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.2,
+        "steps": 2889,
+        "body_battery": 66,
+        "stress": 38,
+        "vo2max": 50.7,
+        "sleep_score": 69
+      },
+      {
+        "date": "2026-06-13",
+        "weight_kg": 95.4,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.3,
+        "steps": 8092,
+        "body_battery": 61,
+        "stress": 31,
+        "vo2max": 50.7,
+        "sleep_score": 96
+      },
+      {
+        "date": "2026-06-14",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.8,
+        "steps": 8116,
+        "body_battery": 86,
+        "stress": 26,
+        "vo2max": 50.7,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-06-15",
+        "weight_kg": 95.4,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.3,
+        "steps": 3797,
+        "body_battery": 81,
+        "stress": 52,
+        "vo2max": 50.8,
+        "sleep_score": 78
+      },
+      {
+        "date": "2026-06-16",
+        "weight_kg": 95.4,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 6.6,
+        "steps": 5050,
+        "body_battery": 53,
+        "stress": 34,
+        "vo2max": 50.8,
+        "sleep_score": 71
+      },
+      {
+        "date": "2026-06-17",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 8404,
+        "body_battery": 52,
+        "stress": 21,
+        "vo2max": 50.8,
+        "sleep_score": 80
+      },
+      {
+        "date": "2026-06-18",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.0,
+        "steps": 4250,
+        "body_battery": 88,
+        "stress": 27,
+        "vo2max": 50.8,
+        "sleep_score": 74
+      },
+      {
+        "date": "2026-06-19",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.4,
+        "steps": 10132,
+        "body_battery": 42,
+        "stress": 22,
+        "vo2max": 50.9,
+        "sleep_score": 73
+      },
+      {
+        "date": "2026-06-20",
+        "weight_kg": 95.3,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.6,
+        "steps": 3665,
+        "body_battery": 67,
+        "stress": 9,
+        "vo2max": 50.9,
+        "sleep_score": 87
+      },
+      {
+        "date": "2026-06-21",
+        "weight_kg": 95.2,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 6.7,
+        "steps": 6605,
+        "body_battery": 67,
+        "stress": 23,
+        "vo2max": 50.9,
+        "sleep_score": 82
+      },
+      {
+        "date": "2026-06-22",
+        "weight_kg": 95.1,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 4266,
+        "body_battery": 84,
+        "stress": 15,
+        "vo2max": 50.9,
+        "sleep_score": 79
+      },
+      {
+        "date": "2026-06-23",
+        "weight_kg": 95.1,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 6.1,
+        "steps": 8136,
+        "body_battery": 64,
+        "stress": 12,
+        "vo2max": 50.9,
+        "sleep_score": 82
+      },
+      {
+        "date": "2026-06-24",
+        "weight_kg": 95.1,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.9,
+        "steps": 9613,
+        "body_battery": 81,
+        "stress": 28,
+        "vo2max": 51.0,
+        "sleep_score": 87
+      },
+      {
+        "date": "2026-06-25",
+        "weight_kg": 95.0,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 5477,
+        "body_battery": 77,
+        "stress": 16,
+        "vo2max": 51.0,
+        "sleep_score": 79
+      },
+      {
+        "date": "2026-06-26",
+        "weight_kg": 95.0,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 8.3,
+        "steps": 6645,
+        "body_battery": 48,
+        "stress": 35,
+        "vo2max": 51.0,
+        "sleep_score": 77
+      },
+      {
+        "date": "2026-06-27",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 6.4,
+        "steps": 7147,
+        "body_battery": 73,
+        "stress": 28,
+        "vo2max": 51.0,
+        "sleep_score": 83
+      },
+      {
+        "date": "2026-06-28",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 7.7,
+        "steps": 7265,
+        "body_battery": 66,
+        "stress": 47,
+        "vo2max": 51.0,
+        "sleep_score": 64
+      },
+      {
+        "date": "2026-06-29",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 8.4,
+        "steps": 8328,
+        "body_battery": 65,
+        "stress": 17,
+        "vo2max": 51.0,
+        "sleep_score": 84
+      },
+      {
+        "date": "2026-06-30",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 59,
+        "sleep_hours": 6.1,
+        "steps": 5971,
+        "body_battery": 67,
+        "stress": 36,
+        "vo2max": 51.0,
+        "sleep_score": 80
+      },
+      {
+        "date": "2026-07-01",
+        "weight_kg": 94.9,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.9,
+        "steps": 8633,
+        "body_battery": 71,
+        "stress": 27,
+        "vo2max": 51.1,
+        "sleep_score": 82
+      },
+      {
+        "date": "2026-07-02",
+        "weight_kg": 94.8,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 8384,
+        "body_battery": 63,
+        "stress": 41,
+        "vo2max": 51.1,
+        "sleep_score": 96
+      },
+      {
+        "date": "2026-07-03",
+        "weight_kg": 94.8,
+        "resting_hr": 53,
+        "hrv": 58,
+        "sleep_hours": 7.7,
+        "steps": 7177,
+        "body_battery": 74,
+        "stress": 41,
+        "vo2max": 51.1,
+        "sleep_score": 75
+      },
+      {
+        "date": "2026-07-04",
+        "weight_kg": 94.7,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 8.1,
+        "steps": 6230,
+        "body_battery": 75,
+        "stress": 8,
+        "vo2max": 51.1,
+        "sleep_score": 73
+      },
+      {
+        "date": "2026-07-05",
+        "weight_kg": 94.8,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 6.4,
+        "steps": 8105,
+        "body_battery": 75,
+        "stress": 30,
+        "vo2max": 51.0,
+        "sleep_score": 87
+      },
+      {
+        "date": "2026-07-06",
+        "weight_kg": 94.8,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 6.5,
+        "steps": 7602,
+        "body_battery": 73,
+        "stress": 27,
+        "vo2max": 51.1,
+        "sleep_score": 81
+      },
+      {
+        "date": "2026-07-07",
+        "weight_kg": 94.7,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 8.2,
+        "steps": 10412,
+        "body_battery": 85,
+        "stress": 17,
+        "vo2max": 51.1,
+        "sleep_score": 84
+      },
+      {
+        "date": "2026-07-08",
+        "weight_kg": 94.6,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 8.4,
+        "steps": 5928,
+        "body_battery": 90,
+        "stress": 24,
+        "vo2max": 51.1,
+        "sleep_score": 67
+      },
+      {
+        "date": "2026-07-09",
+        "weight_kg": 94.6,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 6.3,
+        "steps": 7720,
+        "body_battery": 62,
+        "stress": 30,
+        "vo2max": 51.1,
+        "sleep_score": 83
+      },
+      {
+        "date": "2026-07-10",
+        "weight_kg": 94.6,
+        "resting_hr": 52,
+        "hrv": 58,
+        "sleep_hours": 6.7,
+        "steps": 7266,
+        "body_battery": 84,
+        "stress": 33,
+        "vo2max": 51.1,
+        "sleep_score": 88
+      }
+    ]
+  },
+  "nutrition": {
+    "targets": {
+      "label": "Gym Lifting",
+      "calories": 2750,
+      "protein_g": 215,
+      "carbs_g": 310,
+      "fat_g": 68
+    },
+    "today": {
+      "items": [
+        {
+          "item": "Oats, whey, banana",
+          "calories": 520,
+          "protein_g": 42,
+          "carbs_g": 68,
+          "fat_g": 9
+        },
+        {
+          "item": "Chicken, rice, broccoli",
+          "calories": 710,
+          "protein_g": 58,
+          "carbs_g": 74,
+          "fat_g": 14
+        },
+        {
+          "item": "Greek yogurt, honey",
+          "calories": 260,
+          "protein_g": 24,
+          "carbs_g": 22,
+          "fat_g": 6
+        }
+      ],
+      "calories_total": 1490,
+      "protein_total_g": 124,
+      "carbs_total_g": 164,
+      "fat_total_g": 29
+    },
+    "streak": [
+      {
+        "date": "2026-06-13",
+        "logged": true
+      },
+      {
+        "date": "2026-06-14",
+        "logged": true
+      },
+      {
+        "date": "2026-06-15",
+        "logged": true
+      },
+      {
+        "date": "2026-06-16",
+        "logged": true
+      },
+      {
+        "date": "2026-06-17",
+        "logged": true
+      },
+      {
+        "date": "2026-06-18",
+        "logged": true
+      },
+      {
+        "date": "2026-06-19",
+        "logged": true
+      },
+      {
+        "date": "2026-06-20",
+        "logged": true
+      },
+      {
+        "date": "2026-06-21",
+        "logged": false
+      },
+      {
+        "date": "2026-06-22",
+        "logged": true
+      },
+      {
+        "date": "2026-06-23",
+        "logged": true
+      },
+      {
+        "date": "2026-06-24",
+        "logged": true
+      },
+      {
+        "date": "2026-06-25",
+        "logged": true
+      },
+      {
+        "date": "2026-06-26",
+        "logged": true
+      },
+      {
+        "date": "2026-06-27",
+        "logged": false
+      },
+      {
+        "date": "2026-06-28",
+        "logged": true
+      },
+      {
+        "date": "2026-06-29",
+        "logged": false
+      },
+      {
+        "date": "2026-06-30",
+        "logged": true
+      },
+      {
+        "date": "2026-07-01",
+        "logged": false
+      },
+      {
+        "date": "2026-07-02",
+        "logged": false
+      },
+      {
+        "date": "2026-07-03",
+        "logged": true
+      },
+      {
+        "date": "2026-07-04",
+        "logged": true
+      },
+      {
+        "date": "2026-07-05",
+        "logged": true
+      },
+      {
+        "date": "2026-07-06",
+        "logged": true
+      },
+      {
+        "date": "2026-07-07",
+        "logged": true
+      },
+      {
+        "date": "2026-07-08",
+        "logged": true
+      },
+      {
+        "date": "2026-07-09",
+        "logged": true
+      },
+      {
+        "date": "2026-07-10",
+        "logged": true
+      }
+    ]
+  },
+  "ai_coach": {
+    "headline": "Readiness is strong \u2014 push the trap-bar deadlift today.",
+    "readiness_assessment": "HRV is up 6% on your 7-day average and resting HR is at a 2-week low. Sleep debt is fully cleared after last night's 7.8h. This is a green light for a top-end strength effort rather than a volume day.",
+    "action_plan": [
+      "Trap-bar deadlift: aim for a rep PR at 128kg before backing off",
+      "Keep accessory volume moderate \u2014 protect recovery for tomorrow's field session",
+      "Front-load carbs around the session per the matrix (60% pre/post)",
+      "Hydrate to 4L given today's heat + Gym Lifting intensity"
+    ],
+    "nutrition_directive": "2,750 kcal today with 310g carbs \u2014 put roughly 185g of that carb total in your pre- and post-lift meals to fuel the top set and recover for tomorrow.",
+    "weight_trend_note": "At 94.6kg you're tracking half a kilo ahead of the glide path for this point in Phase 3 \u2014 recomp is on schedule.",
+    "risk_flags": [],
+    "insights": {
+      "overview": {
+        "summary": "Every signal is pointing the same direction today: HRV up, resting HR down, sleep debt cleared, and weight tracking ahead of plan.",
+        "suggestion": "Treat today as a green light \u2014 this is the day to spend the readiness you've built, not bank another easy one."
+      },
+      "plan": {
+        "summary": "At 94.6kg you're half a kilo ahead of the Phase 3 glide path with 15 weeks left to wk24 \u2014 the recomp is on schedule.",
+        "suggestion": "Hold current calories steady rather than cutting further; the rate of loss is already right where it needs to be."
+      },
+      "training": {
+        "summary": "Readiness is Primed at 79 (HRV +6%, RHR at a 2-week low), but your acute:chronic load ratio has crept to 1.33 \u2014 Elevated, not dangerous, after a strong last two weeks.",
+        "suggestion": "Push the trap-bar deadlift for a rep PR attempt at 128kg today, but keep accessory volume moderate rather than adding extra sets \u2014 let the load ratio settle back toward Optimal over the next week."
+      },
+      "gym": {
+        "summary": "Last session's trap-bar deadlift volume (3,040kg across 4 sets) and current best of 128kg x 5 show room to test a heavier top set.",
+        "suggestion": "Add a single top-set attempt at 128kg x 6 before backing off into your usual accessory work."
+      },
+      "sleep": {
+        "summary": "7.6h last night with an 84 sleep score and stress at 22 \u2014 solidly in your normal healthy range, no red flags.",
+        "suggestion": "No changes needed tonight; keep the same wind-down routine that's been producing these scores."
+      },
+      "nutrition": {
+        "summary": "1,490 kcal and 124g protein logged so far against today's 2,750 kcal / 215g targets \u2014 you're behind on both with the lifting session still ahead.",
+        "suggestion": "Prioritize a carb-and-protein-forward meal in the next 2 hours to get ahead of the pre-workout window."
+      }
+    },
+    "macro_targets": {
+      "label": "Gym Lifting",
+      "calories": 2750,
+      "protein_g": 215,
+      "carbs_g": 310,
+      "fat_g": 68
+    }
+  },
+  "training": {
+    "readiness": {
+      "score": 79,
+      "label": "Primed"
+    },
+    "load": {
+      "acute": 30.56,
+      "chronic": 23.04,
+      "acwr": 1.33,
+      "label": "Elevated"
+    },
+    "consistency": {
+      "scheduled_gym_days": 4,
+      "logged_gym_days": 4,
+      "adherence_pct": 100
+    },
+    "zone_distribution": null
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_comment": "Edit this to match your real weekly rhythm. Values must be one of: REST_ZONE2, GYM_LIFTING, FIELD_TEAM, MATCH_DAY. Used as a fallback signal when nothing more specific (Hevy session, match on calendar) is available.",
+  "monday": "REST_ZONE2",
+  "tuesday": "GYM_LIFTING",
+  "wednesday": "REST_ZONE2",
+  "thursday": "GYM_LIFTING",
+  "friday": "FIELD_TEAM",
+  "saturday": "MATCH_DAY",
+  "sunday": "REST_ZONE2"
+}

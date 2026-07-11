@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-07-10T05:00:00+00:00",
+  "mode": "morning",
+  "day_type": "GYM_LIFTING",
+  "overview": {
+    "weight_kg": 92.4,
+    "resting_hr": 48,
+    "hrv": 68,
+    "sleep_hours": 7.6,
+    "steps": 6200,
+    "body_battery": 74,
+    "history_90d": [
+      { "date": "2026-07-08", "weight_kg": 92.6, "resting_hr": 49, "hrv": 66, "sleep_hours": 7.3, "steps": 8100, "body_battery": 70, "vo2max": 52.8 },
+      { "date": "2026-07-09", "weight_kg": 92.5, "resting_hr": 48, "hrv": 67, "sleep_hours": 7.9, "steps": 7400, "body_battery": 78, "vo2max": 52.9 },
+      { "date": "2026-07-10", "weight_kg": 92.4, "resting_hr": 48, "hrv": 68, "sleep_hours": 7.6, "steps": 6200, "body_battery": 74, "vo2max": 53.0 }
+    ]
+  },
+  "plan": {
+    "weight_history": [
+      { "date": "2026-06-01", "weight_kg": 93.0 },
+      { "date": "2026-06-15", "weight_kg": 92.8 },
+      { "date": "2026-07-01", "weight_kg": 92.6 },
+      { "date": "2026-07-10", "weight_kg": 92.4 }
+    ],
+    "current_weight_kg": 92.4
+  },
+  "gym": {
+    "sessions_tracked": 24,
+    "recent_session": {
+      "id": "sample",
+      "title": "Lift C \u2014 Full body",
+      "date": "2026-07-08",
+      "duration_min": 64,
+      "total_volume_kg": 9992,
+      "exercises": [
+        { "name": "Trap-bar or Romanian deadlift", "sets": 4, "volume_kg": 2886 },
+        { "name": "Front squat or leg press", "sets": 4, "volume_kg": 2076 },
+        { "name": "Chin-up", "sets": 3, "volume_kg": 0 }
+      ]
+    },
+    "personal_records": [
+      { "exercise": "Trap-bar or Romanian deadlift", "est_1rm_kg": 149, "top_set": "125kg x 5" },
+      { "exercise": "Sumo deadlift", "est_1rm_kg": 132, "top_set": "115kg x 4" },
+      { "exercise": "Hip thrust", "est_1rm_kg": 128, "top_set": "108kg x 6" }
+    ],
+    "routines": [
+      { "name": "Lift A \u2014 Upper Push/Pull", "exercises": [
+        { "name": "Bench press", "target_sets": 4, "target_reps": "5" },
+        { "name": "Seated cable row", "target_sets": 4, "target_reps": "10" }
+      ]},
+      { "name": "Lift B \u2014 Lower", "exercises": [
+        { "name": "Sumo deadlift", "target_sets": 4, "target_reps": "5" },
+        { "name": "Wide-stance goblet squat", "target_sets": 4, "target_reps": "8" }
+      ]},
+      { "name": "Lift C \u2014 Full body", "exercises": [
+        { "name": "Trap-bar deadlift", "target_sets": 4, "target_reps": "6" },
+        { "name": "Chin-up", "target_sets": 3, "target_reps": "AMRAP" }
+      ]}
+    ]
+  },
+  "sleep": {
+    "last_night": { "sleep_hours": 7.6, "sleep_score": 84, "stress": 22, "body_battery": 74 },
+    "history_90d": [
+      { "date": "2026-07-08", "sleep_hours": 7.3, "body_battery": 70, "stress": 26 },
+      { "date": "2026-07-09", "sleep_hours": 7.9, "body_battery": 78, "stress": 19 },
+      { "date": "2026-07-10", "sleep_hours": 7.6, "body_battery": 74, "stress": 22 }
+    ]
+  },
+  "nutrition": {
+    "targets": { "label": "Gym Lifting", "calories": 2750, "protein_g": 215, "carbs_g": 310, "fat_g": 68 },
+    "today": { "items": [], "calories_total": 0, "protein_total_g": 0, "carbs_total_g": 0, "fat_total_g": 0 },
+    "streak": [
+      { "date": "2026-07-08", "logged": true },
+      { "date": "2026-07-09", "logged": true },
+      { "date": "2026-07-10", "logged": false }
+    ]
+  },
+  "ai_coach": {
+    "headline": "Sample data \u2014 replace with a real run.",
+    "readiness_assessment": "This is placeholder text so you can see the layout before your first GitHub Actions run completes.",
+    "action_plan": ["Add your real API keys", "Trigger a manual workflow_dispatch run", "Watch dashboard_data.json update"],
+    "nutrition_directive": "Once live, this line reflects today's actual hydration and carb-pacing guidance.",
+    "weight_trend_note": "Sample only.",
+    "risk_flags": [],
+    "insights": {
+      "overview": { "summary": "Placeholder \u2014 real synthesis appears after your first cron run.", "suggestion": "Run the workflow manually once to see this populate." },
+      "plan": { "summary": "Placeholder.", "suggestion": "Placeholder." },
+      "training": { "summary": "Placeholder.", "suggestion": "Placeholder." },
+      "gym": { "summary": "Placeholder.", "suggestion": "Placeholder." },
+      "sleep": { "summary": "Placeholder.", "suggestion": "Placeholder." },
+      "nutrition": { "summary": "Placeholder.", "suggestion": "Placeholder." }
+    },
+    "macro_targets": { "label": "Gym Lifting", "calories": 2750, "protein_g": 215, "carbs_g": 310, "fat_g": 68 }
+  }
+}
