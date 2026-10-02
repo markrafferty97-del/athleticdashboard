@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-02T10:56:25.551688+00:00",
-  "mode": "morning",
+  "generated_at": "2026-10-02T23:22:49.602632+00:00",
+  "mode": "evening",
   "day_type": "FIELD_TEAM",
   "overview": {
     "weight_kg": null,
@@ -58,46 +58,46 @@
     "streak": []
   },
   "ai_coach": {
-    "headline": "No telemetry or logs synced yet today \u2014 proceed on Field/Team protocol defaults and close the data gaps before training.",
-    "readiness_assessment": "No sleep, HRV, resting HR, or body battery data has synced this morning, so there's no objective readiness read available. Treat today as a standard Field/Team session but stay alert for subjective fatigue signals since you're flying blind on recovery metrics.",
+    "headline": "Zero data logged today - no weight, nutrition, or training entries to verify adherence against the Field/Team targets.",
+    "readiness_assessment": "No telemetry synced today (sleep, HRV, RHR, body battery all blank), so recovery state is unknown. Without this feed, tomorrow's intensity calls are flying blind until the watch/app syncs.",
     "action_plan": [
-      "Sync your wearable/app now to pull last night's sleep, HRV, and resting HR before you train.",
-      "Hydrate to 4.0-4.5 L today (base 3.5-4.0 L + 1.0 L electrolyte add-on for the rigorous sprint/team-output day), front-loading before the session.",
-      "Hit 3100 kcal / 215g protein / 400g carbs / 66g fat today, routing 60% of carbs (~240g) into pre- and post-workout meals.",
-      "Log today's gym/field session in Hevy immediately afterward so load and adherence tracking stay current.",
-      "Weigh in and log it this morning if you haven't \u2014 the glide path has zero data points to compare against."
+      "Log tonight's weight first thing tomorrow to re-anchor the glide path.",
+      "Sync sleep/HRV/RHR data before training tomorrow so readiness can actually be assessed.",
+      "Log tomorrow's gym session in Hevy in real time - 0/4 scheduled days logged this week is a hard adherence gap to close.",
+      "Pre-log tomorrow's meals against the 3100 kcal / 215P / 400C / 66F Field/Team target, front-loading 60% of carbs into pre/post-workout meals.",
+      "If tomorrow is a sprint/team-output day, plan the +1.0L electrolyte fluid add-on in advance rather than reacting mid-session."
     ],
-    "nutrition_directive": "Target is 3100 kcal / 215g protein / 400g carbs / 66g fat for this Field/Team day \u2014 put roughly 240g of those carbs into the pre- and post-workout windows, and add +1.0 L electrolyte fluid on top of your 3.5-4.0 L baseline given the sprint/team-output load.",
-    "weight_trend_note": "No weight has been logged yet, so there's nothing to compare against the glide path toward the 83.0 kg target \u2014 log today's weight to re-establish the trend line.",
+    "nutrition_directive": "Today's Field/Team target was 3100 kcal, 215g protein, 400g carbs, 66g fat with 60% of carbs around the workout, but nothing was logged, so there's no way to confirm adherence - get tomorrow's intake logged in real time, especially the pre/post-workout carb split.",
+    "weight_trend_note": "No weight entries exist yet against the glide path (target 83.0 kg), so trend status can't be evaluated - log a weight tomorrow to re-establish the baseline.",
     "risk_flags": [
-      "Zero telemetry synced (sleep, HRV, RHR, body battery) \u2014 training load decisions today are being made without recovery data.",
-      "Gym adherence is 0/4 scheduled days logged this cycle \u2014 confirm whether sessions were missed or just not logged.",
-      "No weight or glide-path history present \u2014 milestone tracking (wk8/wk16/wk24) can't be validated yet."
+      "Complete data gap today (weight, nutrition, sleep, HRV, gym) - adherence cannot be verified",
+      "0/4 scheduled gym days logged this week - consistency is at risk",
+      "No readiness metrics available, raising risk of mis-calibrated intensity if training resumes tomorrow without data"
     ],
     "insights": {
       "overview": {
-        "summary": "All core telemetry fields (weight, RHR, HRV, sleep, steps, body battery) are empty, so there's no composite picture of readiness today.",
-        "suggestion": "Open the app and force a sync before the field session so today's data isn't lost."
+        "summary": "Every core metric - weight, RHR, HRV, sleep, steps, body battery - is blank today, making it impossible to form a composite read on current state.",
+        "suggestion": "Open the tracking app tomorrow morning and confirm the watch/sensor sync is active before the day starts."
       },
       "plan": {
-        "summary": "The glide path has no weight history or milestones logged, leaving current progress toward the 83.0 kg target unverifiable.",
-        "suggestion": "Log today's body weight now to seed the glide path and restore milestone tracking."
+        "summary": "No weight history or glide-path points exist yet, so progress toward the 83.0 kg target and the phase milestones can't be assessed.",
+        "suggestion": "Log a weigh-in first thing tomorrow to create the first data point against the glide path."
       },
       "training": {
-        "summary": "Readiness and load scores are both null, so there's no quantitative basis to push or hold back intensity today.",
-        "suggestion": "Default to planned Field/Team intensity (true maximal velocity on sprint reps, conversational Zone 2 only) but self-monitor and pull back if perceived exertion spikes abnormally."
+        "summary": "Readiness and load are both null and 0 of 4 scheduled gym days this week have been logged, so there's no evidence of whether training actually happened or matched plan.",
+        "suggestion": "Log tomorrow's session as it happens (sets, reps, load) rather than after the fact so adherence tracking stays current."
       },
       "gym": {
-        "summary": "No recent Hevy session data is available and logged gym adherence is 0 of 4 scheduled days this cycle, so there's no record of current working loads.",
-        "suggestion": "Log your next lift immediately after completion, prioritizing holding last known working weights over adding volume, per the bar-velocity directive."
+        "summary": "No gym session data is available for this run, leaving the current split and recent lift performance unverifiable.",
+        "suggestion": "Enter tomorrow's lifts into Hevy immediately post-session so working weights and PRs stay traceable."
       },
       "sleep": {
-        "summary": "No sleep history or last-night data has synced, so quality and stress/body-battery trend can't be assessed.",
-        "suggestion": "Check your sleep tracker sync tonight and ensure it logs before tomorrow's check-in."
+        "summary": "No sleep data was captured for last night, so quality and its effect on tomorrow's readiness are unknown.",
+        "suggestion": "Check that the sleep tracker synced before bed tonight so tomorrow morning's readiness read isn't blank again."
       },
       "nutrition": {
-        "summary": "Zero intake has been logged today against the 3100 kcal / 215g protein / 400g carb / 66g fat Field/Team target.",
-        "suggestion": "Start logging meals now, front-loading a high-carb pre-workout meal to begin hitting the 60% pre/post carb pacing rule."
+        "summary": "Zero items were logged against today's 3100 kcal / 215P / 400C / 66F Field/Team target, so adherence to the carb-pacing directive can't be confirmed.",
+        "suggestion": "Log tomorrow's meals in real time, putting 60% of the 400g carb allowance into the pre- and post-workout meals."
       }
     },
     "day_type": "FIELD_TEAM",
