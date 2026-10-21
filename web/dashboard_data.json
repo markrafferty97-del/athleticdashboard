@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-21T09:52:58.765816+00:00",
-  "mode": "morning",
+  "generated_at": "2026-10-21T22:51:50.049007+00:00",
+  "mode": "evening",
   "day_type": "REST_ZONE2",
   "overview": {
     "weight_kg": null,
@@ -58,46 +58,45 @@
     "streak": []
   },
   "ai_coach": {
-    "headline": "No telemetry synced today \u2014 treat this as a rest/Zone 2 day per the matrix and prioritize logging to restore visibility.",
-    "readiness_assessment": "No sleep, HRV, resting HR, or body battery data has synced yet, so readiness can't be quantified this morning. Given the day type is Rest/Zone 2, the default plan is low-risk even without that data \u2014 just keep intensity conversational if any cardio is done.",
+    "headline": "Zero data logged today\u2014no weight, nutrition, sleep, or training entries to confirm adherence to the rest-day plan.",
+    "readiness_assessment": "No telemetry synced today (no HRV, RHR, sleep, or body battery), so recovery state is unknown. Treat tomorrow as a clean slate but prioritize getting the tracking stack back online before assuming readiness either way.",
     "action_plan": [
-      "Sync your wearable (sleep/HRV/RHR/steps) before midday so tomorrow's readiness read isn't blind.",
-      "If doing Zone 2 cardio, keep it strictly conversational-pace \u2014 no drift into grey zone.",
-      "Hit 2300 kcal / 215g protein / 200g carbs / 66g fat today per the Rest/Zone 2 target.",
-      "Log today's meals in real time rather than retroactively, since 0 items are logged so far.",
-      "If a gym session is scheduled, log it in Hevy immediately after so load/PR tracking doesn't go stale (0/4 scheduled days logged this block)."
+      "Log tomorrow's weight first thing on waking to re-anchor the glide path.",
+      "Sync sleep/HRV/RHR data overnight so tomorrow's readiness call has real numbers behind it.",
+      "Log all meals in real time tomorrow against the 2300 kcal / 215g protein / 200g carb / 66g fat target.",
+      "If Zone 2 cardio is scheduled tomorrow, log it immediately post-session to close the training-consistency gap.",
+      "Confirm gym days are actually in Hevy going forward\u20140 of 4 scheduled days logged this period."
     ],
-    "nutrition_directive": "Hit the Rest/Zone 2 targets exactly: 2300 kcal, 215g protein, 200g carbs, 66g fat \u2014 no need for the carb-pacing or +1L electrolyte protocol today since this isn't a Field/Team or sprint day.",
-    "weight_trend_note": "No weight entries or glide-path history are logged yet, so progress toward the 83.0 kg target can't be assessed \u2014 log a weight this morning to re-anchor the trend line.",
+    "nutrition_directive": "No intake was logged today against the 2300 kcal / 215g protein / 200g carb / 66g fat rest-day target, so adherence can't be assessed\u2014log every meal tomorrow in real time to restore visibility, and hold fluids at the standard 3.5-4.0 L since no rigorous sprint/team session was indicated.",
+    "weight_trend_note": "No weight entry today means there's nothing to compare against the glide path toward 83.0 kg\u2014log tomorrow morning to re-establish the trend line.",
     "risk_flags": [
-      "Zero telemetry synced (sleep, HRV, RHR, body battery, steps) \u2014 readiness is a blind spot today.",
-      "Gym adherence currently 0/4 scheduled days logged \u2014 confirm sessions are happening or adjust the split.",
-      "No weight history logged \u2014 glide-path tracking has gone dark."
+      "Complete data gap today: no weight, nutrition, sleep, HRV, RHR, or training logged \u2014 adherence cannot be verified.",
+      "Gym consistency at 0% (0 of 4 scheduled days logged) \u2014 confirm whether sessions were actually missed or just not logged."
     ],
     "insights": {
       "overview": {
-        "summary": "Every core metric (weight, RHR, HRV, sleep, steps, battery) is blank this morning, so there's no composite read on state \u2014 the day defaults to the pre-set Rest/Zone 2 protocol.",
-        "suggestion": "Open the wearable app and force a manual sync before your first meal so the data pipeline catches up."
+        "summary": "Every metric (weight, RHR, HRV, sleep, steps, battery) is blank today, so there's no composite read on how the day actually went.",
+        "suggestion": "Open the tracking app tonight and confirm device sync so tomorrow's dashboard populates automatically."
       },
       "plan": {
-        "summary": "No weight history or glide-path points exist yet, so it's impossible to say whether you're ahead, on, or behind pace toward the 83.0 kg target.",
-        "suggestion": "Log today's bodyweight now to re-establish the first data point on the glide path."
+        "summary": "With no weight logged, progress toward the 83.0 kg target and phase milestones can't be checked today.",
+        "suggestion": "Step on the scale first thing tomorrow and log it before breakfast to restore the glide-path comparison."
       },
       "training": {
-        "summary": "Readiness and load are both null, but the day is classified Rest/Zone 2, so the intensity ceiling is already capped regardless of missing data.",
-        "suggestion": "Keep today to conversational Zone 2 cardio or full rest \u2014 do not add any high-intensity work given the lack of readiness signal."
+        "summary": "Gym adherence sits at 0 of 4 scheduled days logged, and today was a designated Rest/Zone 2 day with no activity recorded either way.",
+        "suggestion": "If a gym session was actually missed this block, log it as such or reschedule it within the next 48 hours rather than letting it silently drop."
       },
       "gym": {
-        "summary": "No gym session data is present and 0 of 4 scheduled gym days this block have been logged, leaving the split's progression invisible.",
-        "suggestion": "Log your next lifting session in Hevy immediately after training so working weights and PRs stay current."
+        "summary": "No gym session data is available to compare against the split or recent PRs.",
+        "suggestion": "Log the next lifting session in Hevy immediately after completing it so load/PR tracking stays current."
       },
       "sleep": {
-        "summary": "No sleep data or history has synced, so last night's quality and the stress/body-battery trend are unknown.",
-        "suggestion": "Check your sleep tracker sync tonight and confirm the device is recording before bed."
+        "summary": "No sleep data was recorded last night, so quality, duration, and the stress/body-battery trend are all unknown.",
+        "suggestion": "Wear the tracker to bed tonight and check that sync completes before tomorrow's check-in."
       },
       "nutrition": {
-        "summary": "Zero items are logged against the 2300 kcal / 215g protein / 200g carb / 66g fat Rest/Zone 2 target, so intake is currently fully untracked.",
-        "suggestion": "Log your first meal now and structure the remaining meals to land on the full 215g protein target by end of day."
+        "summary": "0 kcal / 0g protein / 0g carbs / 0g fat were logged against today's 2300 kcal / 215g protein / 200g carb / 66g fat target, leaving total adherence unverified.",
+        "suggestion": "Log tomorrow's meals as you eat them, aiming to hit the 215g protein floor first before filling remaining calories."
       }
     },
     "day_type": "REST_ZONE2",
