@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-27T23:17:40.533551+00:00",
-  "mode": "evening",
-  "day_type": "GYM_LIFTING",
+  "generated_at": "2026-10-28T11:05:09.795387+00:00",
+  "mode": "morning",
+  "day_type": "REST_ZONE2",
   "overview": {
     "weight_kg": null,
     "resting_hr": null,
@@ -41,12 +41,12 @@
   },
   "nutrition": {
     "targets": {
-      "label": "Gym Lifting",
-      "calories": 2750,
+      "label": "Rest / Zone 2",
+      "calories": 2300,
       "protein_g": 215,
-      "carbs_g": 310,
-      "fat_g": 68,
-      "application": "Full-body power blocks & finishing strength days"
+      "carbs_g": 200,
+      "fat_g": 66,
+      "application": "Designated rest days & conversational cardio"
     },
     "today": {
       "items": [],
@@ -58,55 +58,55 @@
     "streak": []
   },
   "ai_coach": {
-    "headline": "No data logged today\u2014nutrition, training, and weight all went untracked, so tomorrow starts the adherence reset.",
-    "readiness_assessment": "No telemetry (sleep, HRV, RHR, steps, body battery) was synced today, so recovery state is completely unknown. Without this data, tonight's training call defaults to caution\u2014treat tomorrow as a readiness check-in before loading hard.",
+    "headline": "No telemetry synced yet today \u2014 treat this as a planned Rest/Zone 2 day and log data to restore visibility.",
+    "readiness_assessment": "No sleep, HRV, RHR, or body battery data has come through yet, so readiness can't be objectively assessed this morning. Given the day type is Rest/Zone 2, default to conservative, conversational-effort activity until data or subjective feel says otherwise.",
     "action_plan": [
-      "Log tonight's weight and sync sleep/HRV data first thing tomorrow so readiness can actually be assessed",
-      "Log the gym session in Hevy if one happened today, even retroactively, to keep the 4-day split and PRs current",
-      "Hit tomorrow's 2750 kcal / 215g protein / 310g carb / 68g fat target from the start of the day, not reconstructed after the fact",
-      "If tomorrow is a lifting day, prioritize defending working weight on the main compound lift over adding junk volume",
-      "Set a phone reminder for post-workout and evening meals tomorrow to close the logging gap in real time"
+      "Sync wearable/app to pull in last night's sleep, HRV, and RHR before deciding on activity intensity.",
+      "If training, keep any cardio strictly conversational (Zone 2) \u2014 no drift toward grey-zone effort.",
+      "Hit the 2300 kcal / 215g protein / 200g carb / 66g fat target for today; no training-day carb pacing needed since it's a rest day.",
+      "Drink 3.5-4.0 L fluids today (no sprint/team session, so no electrolyte add-on needed).",
+      "Log today's weight, sleep, and any activity so tomorrow's readiness read isn't blind again."
     ],
-    "nutrition_directive": "Zero intake was logged against today's 2750 kcal / 215g protein / 310g carb / 68g fat Gym Lifting target, so there's no way to confirm adherence\u2014tomorrow, log meals as you eat them and keep hydration at 3.5-4.0L, adding +1.0L with electrolytes if a rigorous session happens.",
-    "weight_trend_note": "No weight was logged today, so there's nothing to compare against the glide path toward the 83.0 kg target\u2014get back on the scale tomorrow to restore the trend line.",
+    "nutrition_directive": "Hit the standard Rest/Zone 2 matrix target of 2300 kcal, 215g protein, 200g carbs, 66g fat with no special pre/post pacing since there's no field/team session today; maintain baseline 3.5-4.0 L hydration.",
+    "weight_trend_note": "No weight data has been logged, so there's nothing to compare against the glide path toward the 83.0 kg target yet.",
     "risk_flags": [
-      "Complete data gap today: no weight, sleep, HRV, RHR, steps, body battery, gym session, or nutrition logged",
-      "Gym consistency shows 0 of 4 scheduled days logged this period\u2014adherence tracking is effectively blind right now"
+      "Zero telemetry (sleep, HRV, RHR, body battery, weight) logged \u2014 readiness and trend tracking are currently blind.",
+      "Gym adherence at 0 of 4 scheduled days this period \u2014 confirm if sessions are missed or just unlogged."
     ],
     "insights": {
       "overview": {
-        "summary": "Every metric\u2014weight, RHR, HRV, sleep, steps, body battery\u2014is blank for today, making it impossible to synthesize how the day actually went.",
-        "suggestion": "Sync your wearable and log weight first thing tomorrow morning before anything else."
+        "summary": "All core telemetry (weight, RHR, HRV, sleep, steps, battery) is missing for today, leaving no basis to characterize recovery or load.",
+        "suggestion": "Open the tracking app now and sync/log last night's sleep and this morning's weight so today's read isn't a blank slate."
       },
       "plan": {
-        "summary": "No weight entry exists today to check against the glide path toward 83.0 kg, so progress status is unknown for this date.",
-        "suggestion": "Weigh in tomorrow under the same conditions as prior entries to restore a comparable data point on the glide path."
+        "summary": "No weight history or glide path points exist yet, so progress toward the 83.0 kg target can't be evaluated this period.",
+        "suggestion": "Log today's weight to start populating the glide path comparison against the 83.0 kg target."
       },
       "training": {
-        "summary": "Readiness and load fields are both null and 0 of 4 scheduled gym days are logged, so there's no basis to judge whether today's training (if any) matched plan.",
-        "suggestion": "Treat tomorrow as a standard lifting day per the 4-day split, but log the session immediately afterward so readiness-vs-load comparisons are possible going forward."
+        "summary": "Today is classified as a Rest/Zone 2 day with no readiness or load data available, and gym adherence sits at 0 of 4 scheduled days so far.",
+        "suggestion": "Keep today to true conversational-pace Zone 2 cardio or full rest, and use it to log any missed gym sessions from this week before the next lifting day."
       },
       "gym": {
-        "summary": "No session data was returned for today or recently, leaving the split and PR tracking stale.",
-        "suggestion": "Open Hevy before tomorrow's session and log sets/weights live so the next PR check has real numbers to compare against."
+        "summary": "No recent gym session data is on file, so there's nothing to assess against PRs or the current split.",
+        "suggestion": "Log the last completed session in Hevy so PR tracking and split sequencing stay current."
       },
       "sleep": {
-        "summary": "Last night's sleep has no recorded hours, stage breakdown, or body battery figure, so recovery readiness can't be read.",
-        "suggestion": "Wear your sleep tracker tonight and check that it syncs before tomorrow morning's check-in."
+        "summary": "Last night's sleep and the 90-day history are both empty, so sleep quality and stress/body-battery trend can't be read.",
+        "suggestion": "Sync sleep data today and set a consistent wind-down time tonight so tomorrow's readiness picture is usable."
       },
       "nutrition": {
-        "summary": "Zero calories, protein, carbs, or fat were logged against the 2750/215/310/68 Gym Lifting target, so adherence today is unverifiable.",
-        "suggestion": "Log each meal tomorrow as it happens, front-loading carbs around training per the pacing rule, so the full day hits the target instead of guessing after the fact."
+        "summary": "No food has been logged today, so intake is currently 0 against the 2300 kcal / 215g protein / 200g carb / 66g fat Rest/Zone 2 target.",
+        "suggestion": "Start logging meals now, front-loading protein, to realistically hit 215g protein and the full calorie target by end of day."
       }
     },
-    "day_type": "GYM_LIFTING",
+    "day_type": "REST_ZONE2",
     "macro_targets": {
-      "label": "Gym Lifting",
-      "calories": 2750,
+      "label": "Rest / Zone 2",
+      "calories": 2300,
       "protein_g": 215,
-      "carbs_g": 310,
-      "fat_g": 68,
-      "application": "Full-body power blocks & finishing strength days"
+      "carbs_g": 200,
+      "fat_g": 66,
+      "application": "Designated rest days & conversational cardio"
     }
   }
 }
