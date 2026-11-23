@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-23T00:31:27.980318+00:00",
-  "mode": "evening",
+  "generated_at": "2026-11-23T15:44:39.003643+00:00",
+  "mode": "morning",
   "day_type": "REST_ZONE2",
   "overview": {
     "weight_kg": null,
@@ -58,47 +58,10 @@
     "streak": []
   },
   "ai_coach": {
-    "headline": "No data logged today -- zero nutrition, telemetry, or training entries means adherence to the Rest/Zone2 plan is unverifiable.",
-    "readiness_assessment": "No sleep, HRV, RHR, or body battery synced for today, so readiness can't be assessed. Treat tomorrow as a clean slate but prioritize closing the logging gap before drawing any recovery conclusions.",
-    "action_plan": [
-      "Log tomorrow's weight first thing on waking to re-anchor the glide path.",
-      "Sync wearable data (sleep, HRV, RHR, body battery) before training tomorrow.",
-      "Log all meals in real time tomorrow against the 2300 kcal / 215P / 200C / 66F target rather than end-of-day recall.",
-      "If a gym session is scheduled tomorrow, log it in Hevy immediately post-session to restore the 0/4 adherence count."
-    ],
-    "nutrition_directive": "Today's Rest/Zone 2 target was 2300 kcal, 215g protein, 200g carbs, 66g fat with none logged -- tomorrow, log meals as you eat them and hit at least the protein target early in the day to stay on track.",
-    "weight_trend_note": "No weight entries exist yet against the glide path toward 83.0 kg, so no trend comparison is possible -- a single logged data point tomorrow would start closing this gap.",
-    "risk_flags": [
-      "Zero nutrition logged today against a 2300 kcal rest-day target -- adherence cannot be confirmed.",
-      "Gym consistency sits at 0/4 scheduled days logged this cycle -- a real volume gap, not just a tracking gap.",
-      "No telemetry (sleep, HRV, RHR, steps, body battery) synced today, removing visibility into recovery state."
-    ],
-    "insights": {
-      "overview": {
-        "summary": "Every core metric -- weight, RHR, HRV, sleep, steps, body battery -- is blank today, so there's no read on how today actually went.",
-        "suggestion": "Open the tracking app tonight and confirm wearable sync is active so tomorrow's data populates automatically."
-      },
-      "plan": {
-        "summary": "No weight history or glide-path points exist yet, so progress toward the 83.0 kg target and phase milestones can't be evaluated.",
-        "suggestion": "Log a weight entry first thing tomorrow morning to create the first real data point on the glide path."
-      },
-      "training": {
-        "summary": "Readiness and load are both unlogged, and gym adherence is 0/4 scheduled days this cycle -- there's no basis to call for push, hold, or rest.",
-        "suggestion": "Log tomorrow's session (or rest day) explicitly in the training tracker so the next readiness read has real inputs."
-      },
-      "gym": {
-        "summary": "No recent session data or PRs are on file, so there's nothing to compare against the current split or lift progression.",
-        "suggestion": "Log the next lifting session in Hevy immediately after completing it, including working weights, so bar-velocity protection can be tracked going forward."
-      },
-      "sleep": {
-        "summary": "Last night's sleep hours and the stress/body-battery trend are both missing, so quality can't be judged.",
-        "suggestion": "Wear the tracker to bed tonight and check in the morning that sleep stages and body battery recorded correctly."
-      },
-      "nutrition": {
-        "summary": "Zero calories, protein, carbs, or fat were logged today against the 2300 kcal / 215P / 200C / 66F rest-day target, so adherence is unknown rather than confirmed good or bad.",
-        "suggestion": "Log tomorrow's meals in real time, prioritizing the 215g protein target early to avoid a late-day scramble."
-      }
-    },
+    "headline": "Coach unavailable this run.",
+    "action_plan": [],
+    "risk_flags": [],
+    "insights": {},
     "day_type": "REST_ZONE2",
     "macro_targets": {
       "label": "Rest / Zone 2",
