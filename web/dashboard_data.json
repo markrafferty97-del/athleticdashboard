@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-27T14:47:04.686430+00:00",
-  "mode": "morning",
-  "day_type": "FIELD_TEAM",
+  "generated_at": "2026-11-28T02:18:40.486037+00:00",
+  "mode": "evening",
+  "day_type": "MATCH_DAY",
   "overview": {
     "weight_kg": null,
     "resting_hr": null,
@@ -41,12 +41,12 @@
   },
   "nutrition": {
     "targets": {
-      "label": "Field / Team",
-      "calories": 3100,
+      "label": "Match Day",
+      "calories": 3500,
       "protein_g": 215,
-      "carbs_g": 400,
-      "fat_g": 66,
-      "application": "Sprint capacity work & high-volume squad drills"
+      "carbs_g": 500,
+      "fat_g": 71,
+      "application": "Competitive play fueling (performance target)"
     },
     "today": {
       "items": [],
@@ -62,14 +62,14 @@
     "action_plan": [],
     "risk_flags": [],
     "insights": {},
-    "day_type": "FIELD_TEAM",
+    "day_type": "MATCH_DAY",
     "macro_targets": {
-      "label": "Field / Team",
-      "calories": 3100,
+      "label": "Match Day",
+      "calories": 3500,
       "protein_g": 215,
-      "carbs_g": 400,
-      "fat_g": 66,
-      "application": "Sprint capacity work & high-volume squad drills"
+      "carbs_g": 500,
+      "fat_g": 71,
+      "application": "Competitive play fueling (performance target)"
     }
   }
 }
